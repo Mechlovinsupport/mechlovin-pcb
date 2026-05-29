@@ -6,6 +6,8 @@ backend:
   name: github
   repo: Mechlovinsupport/mechlovin-pcb
   branch: main
+  base_url: https://mechlovin-pcb.support-ab1.workers.dev
+  auth_endpoint: api/auth
 
 # Uploaded images go here, and are served from /images.
 media_folder: "public/images"
