@@ -28,7 +28,7 @@ collections:
       - { name: subtitle, label: "Subtitle", widget: string }
       - { name: rev, label: "Revision", widget: string }
       - { name: status, label: "Status", widget: select, options: ["in-production", "in-development", "discontinued"], default: "in-production" }
-      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Numpad"] }
+      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo"] }
       - { name: released, label: "Released", widget: string }
       - { name: featured, label: "Featured on home page", widget: boolean, default: false }
       - { name: heroImage, label: "Hero image", widget: image, required: false }
@@ -127,7 +127,7 @@ collections:
       - { name: name, label: "Name", widget: string }
       - { name: aliases, label: "Search aliases", widget: list, required: false, hint: "Lowercase nicknames people search for, e.g. tofu65" }
       - { name: vendor, label: "Vendor", widget: string }
-      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Numpad"] }
+      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo"] }
       - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"] }
       - label: "Compatible PCBs"
         name: matches

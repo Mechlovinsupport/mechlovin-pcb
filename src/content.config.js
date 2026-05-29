@@ -20,14 +20,16 @@ const pcbs = defineCollection({
   schema: z.object({
     name: z.string(),
     slug: z.string(),
-    subtitle: z.string(),
-    rev: z.string(),
-    status: z.enum(['in-production', 'in-development', 'discontinued']),
-    layout: z.string(),                 // "60%", "65%", "75%", "TKL", "Numpad"
-    released: z.string(),
+    // Everything below is optional with sensible defaults, so a freshly-indexed
+    // PCB can carry just a name + slug and be filled in later via the CMS.
+    subtitle: z.string().default(''),
+    rev: z.string().default(''),
+    status: z.enum(['in-production', 'in-development', 'discontinued']).default('in-production'),
+    layout: z.string().default(''),     // "60%", "65%", "75%", "TKL", "Full-Size", "Ergo"
+    released: z.string().default(''),
     heroImage: z.string().optional(),
     layoutSvg: z.string().optional(),   // KLE "Download SVG" export, in /public/layouts
-    lede: z.string(),
+    lede: z.string().default(''),
     featured: z.boolean().default(false),
 
     // For the compatibility tool's filters:
