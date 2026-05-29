@@ -4,16 +4,19 @@ import CompatTool from '../components/CompatTool.jsx';
 import { getCollection } from 'astro:content';
 
 const pcbs = (await getCollection('pcbs')).map((e) => e.data);
+const pcbSlugs = new Set(pcbs.map((p) => p.slug));
 
-// Flatten keyboard entries into plain objects for the island, resolving the
-// PCB reference on each match down to a plain slug string.
+// Flatten keyboard entries into plain objects for the island. Drop any match
+// whose PCB has been deleted so the verdict counts and rows stay consistent.
 const keyboards = (await getCollection('keyboards')).map((e) => ({
   name: e.data.name,
   aliases: e.data.aliases,
   vendor: e.data.vendor,
   layout: e.data.layout,
   connector: e.data.connector,
-  matches: e.data.matches.map((m) => ({ pcb: m.pcb.id, fit: m.fit, note: m.note })),
+  matches: e.data.matches
+    .map((m) => ({ pcb: m.pcb, fit: m.fit, note: m.note }))
+    .filter((m) => pcbSlugs.has(m.pcb)),
 }));
 ---
 <Base title="Compatibility check — Mechlovin Studio" active="compatibility">

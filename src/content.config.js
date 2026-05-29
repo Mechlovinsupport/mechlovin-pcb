@@ -1,9 +1,19 @@
-import { defineCollection, z, reference } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 // This schema is the single source of truth for the site's content.
 // Both the PCB detail pages AND the compatibility tool read from these
 // collections, so adding one .md file updates the whole site automatically.
+
+// Tolerant array: the CMS writes `null` when a list/multi-select is emptied,
+// so coerce null / undefined / object into a real array. This keeps the build
+// from breaking when an editor clears a field.
+const arr = (inner) =>
+  z.preprocess(
+    (v) =>
+      v == null ? [] : Array.isArray(v) ? v : typeof v === 'object' ? Object.values(v) : [v],
+    z.array(inner)
+  );
 
 const pcbs = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pcbs' }),
@@ -21,48 +31,48 @@ const pcbs = defineCollection({
     featured: z.boolean().default(false),
 
     // For the compatibility tool's filters:
-    switches: z.array(z.enum(['mx', 'lp'])).default(['mx']),
-    features: z.array(z.string()).default([]),     // 'hot-swap','per-key-rgb','encoder','wireless'
+    switches: arr(z.enum(['mx', 'lp'])),
+    features: arr(z.string()),          // 'hot-swap','per-key-rgb','encoder','wireless'
     connection: z.enum(['wired', 'wireless']).default('wired'),
     connector: z.enum(['onboard', 'daughterboard']).default('onboard'),
-    mount: z.array(z.string()).default([]),
+    mount: arr(z.string()),
 
-    specs: z.array(z.object({
+    specs: arr(z.object({
       key: z.string(),
       value: z.string(),
-    })).default([]),
+    })),
 
-    downloads: z.array(z.object({
+    downloads: arr(z.object({
       kind: z.string(),                 // "QMK Firmware", "VIA JSON", "3D Model"
       file: z.string(),                 // path under /public/files
       description: z.string(),
       external: z.string().url().optional(),
-    })).default([]),
+    })),
 
-    compatibility: z.array(z.object({
+    compatibility: arr(z.object({
       title: z.string(),                // "Cases", "Plates", "Switches", "Stabilizers"
       body: z.string(),
-    })).default([]),
+    })),
 
-    changelog: z.array(z.object({
+    changelog: arr(z.object({
       rev: z.string(),
       date: z.string(),
       current: z.boolean().default(false),
       summary: z.string(),
-      items: z.array(z.object({
+      items: arr(z.object({
         kind: z.enum(['add', 'fix', 'chg', 'rm']),
         text: z.string(),
-      })).default([]),
-    })).default([]),
+      })),
+    })),
 
-    vendors: z.array(z.object({
+    vendors: arr(z.object({
       name: z.string(),
       region: z.string(),
       stock: z.enum(['in', 'low', 'out']),
       price: z.string(),
       shipping: z.string(),
       url: z.string().url(),
-    })).default([]),
+    })),
   }),
 });
 
@@ -71,15 +81,17 @@ const keyboards = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/keyboards' }),
   schema: z.object({
     name: z.string(),
-    aliases: z.array(z.string()).default([]),
+    aliases: arr(z.string()),
     vendor: z.string(),
     layout: z.string(),
     connector: z.enum(['onboard', 'daughterboard']),
-    matches: z.array(z.object({
-      pcb: reference('pcbs'),           // slug of a PCB in the pcbs collection
+    matches: arr(z.object({
+      pcb: z.string(),                  // slug of a PCB. Plain string (not a strict
+                                        // reference) so deleting a PCB never breaks
+                                        // the build — missing ones are skipped at render.
       fit: z.enum(['direct', 'mods']),
       note: z.string(),
-    })).default([]),
+    })),
   }),
 });
 
@@ -97,11 +109,11 @@ const guides = defineCollection({
     updated: z.string().default(''),
     tag: z.string().default(''),
     order: z.number().default(99),
-    toc: z.array(z.object({
+    toc: arr(z.object({
       id: z.string(),
       num: z.string(),
       label: z.string(),
-    })).default([]),
+    })),
   }),
 });
 
