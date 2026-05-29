@@ -1,0 +1,40 @@
+---
+import { LAYOUTS } from '../data/labels.js';
+const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+---
+<footer>
+  <div class="col-brand">
+    <div class="wordmark">
+      <span>mechlovin</span>
+      <span class="dot"></span>
+      <span class="wordmark-sub">studio</span>
+    </div>
+    <p>Custom mechanical keyboard PCBs, designed in Hanoi and shipped worldwide since 2019.</p>
+  </div>
+  <div>
+    <h5>Resources</h5>
+    <ul>
+      <li><a href="/pcbs">All PCBs</a></li>
+      <li><a href="/compatibility">Compatibility check</a></li>
+      <li><a href={guideHref}>Build guides</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5>Layouts</h5>
+    <ul>
+      {LAYOUTS.map((l) => <li><a href={`/pcbs#${encodeURIComponent(l)}`}>{l}</a></li>)}
+    </ul>
+  </div>
+  <div>
+    <h5>Mechlovin</h5>
+    <ul>
+      <li><a href="https://mechlovin.studio" target="_blank" rel="noopener">Main store ↗</a></li>
+      <li><a href="https://github.com/mechlovin" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="https://discord.gg/mechlovin" target="_blank" rel="noopener">Discord ↗</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Mechlovin Studio · Designed in Hanoi</span>
+  <span>v3.0 · support.mechlovin.studio</span>
+</div>

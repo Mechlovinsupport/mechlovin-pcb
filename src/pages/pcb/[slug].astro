@@ -1,0 +1,139 @@
+---
+import Base from '../../layouts/Base.astro';
+import Specs from '../../components/Specs.astro';
+import Layouts from '../../components/Layouts.astro';
+import Downloads from '../../components/Downloads.astro';
+import Compatibility from '../../components/Compatibility.astro';
+import Changelog from '../../components/Changelog.astro';
+import Vendors from '../../components/Vendors.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pcbs = await getCollection('pcbs');
+  return pcbs.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { pcb: entry.data },
+  }));
+}
+
+const { pcb } = Astro.props;
+
+const switchLabel = (() => {
+  const base = pcb.switches.includes('lp') && !pcb.switches.includes('mx') ? 'Low-profile' : 'MX';
+  return pcb.features.includes('hot-swap') ? `Hot-swap ${base}` : base;
+})();
+
+const stats = [
+  { label: 'Layout', val: pcb.layout },
+  { label: 'Switch', val: switchLabel },
+  { label: 'Revision', val: pcb.rev.replace(/^Rev\.\s*/, '') },
+  { label: 'Released', val: pcb.released },
+];
+
+const thumbs = ['Top render', 'Bottom render', 'Daughterboard', 'In-case'];
+const sectionNav = [
+  { id: 'specs', label: 'Specs' },
+  { id: 'layouts', label: 'Layouts' },
+  { id: 'downloads', label: 'Downloads' },
+  { id: 'compatibility', label: 'Compatibility' },
+  { id: 'changelog', label: 'Changelog' },
+  { id: 'where-to-buy', label: 'Where to buy' },
+];
+const updated = pcb.changelog?.[0]?.date || pcb.released;
+const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+const configuratorUrl = 'https://mechlovin.studio';
+---
+<Base title={`${pcb.name} — Mechlovin Studio`} description={pcb.lede} active="pcbs">
+  <header class="pagehead">
+    <div>
+      <div class="breadcrumb">
+        <a href="/pcbs">All PCBs</a>
+        <span class="sep">/</span>
+        <a href={`/pcbs#${encodeURIComponent(pcb.layout)}`}>{pcb.layout}</a>
+        <span class="sep">/</span>
+        <span style="color: var(--ink-2)">{pcb.name}</span>
+      </div>
+      <h1>{pcb.name}</h1>
+      <div class="subtitle">{pcb.subtitle}</div>
+      <div class="tag-row">
+        <span class="tag">{pcb.rev}</span>
+        <span class="tag accent">QMK · VIA</span>
+        {pcb.connection === 'wireless' && <span class="tag">Wireless</span>}
+      </div>
+      <p class="lede">{pcb.lede}</p>
+      <div class="head-stats">
+        {stats.map((s) => (
+          <div>
+            <div class="label">{s.label}</div>
+            <div class="val">{s.val}</div>
+          </div>
+        ))}
+      </div>
+      <div class="head-cta">
+        <a class="btn btn-primary" href={configuratorUrl} target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z M4 10h16 M10 4v16"/></svg>
+          Open in Mechlovin' PCB Configurator
+        </a>
+        <a class="btn btn-ghost" href={guideHref}>Build guide</a>
+      </div>
+    </div>
+    <div>
+      <div class="head-image">
+        {pcb.heroImage
+          ? <img src={pcb.heroImage} alt={pcb.name} style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          : <div class="placeholder"><span id="thumb-label">{thumbs[0]}  ·  drop product photo</span></div>}
+      </div>
+      <div class="head-thumbs">
+        {thumbs.map((t, i) => (
+          <div class={i === 0 ? 'active' : ''} data-thumb={t} data-i={i} title={t}></div>
+        ))}
+      </div>
+    </div>
+  </header>
+
+  <nav class="section-nav">
+    <div class="section-nav-inner">
+      {sectionNav.map((it, i) => (
+        <a href={`#${it.id}`} class={i === 0 ? 'active' : ''} data-spy={it.id}>{it.label}</a>
+      ))}
+      <div class="section-nav-right">
+        <span>Updated {updated}</span>
+      </div>
+    </div>
+  </nav>
+
+  <Specs specs={pcb.specs} />
+  <Layouts layoutSvg={pcb.layoutSvg} name={pcb.name} />
+  <Downloads downloads={pcb.downloads} />
+  <Compatibility compatibility={pcb.compatibility} name={pcb.name} />
+  <Changelog changelog={pcb.changelog} />
+  <Vendors vendors={pcb.vendors} />
+</Base>
+
+<script>
+  // Hero thumbnail switcher (placeholder labels until photos are uploaded).
+  const thumbEls = Array.from(document.querySelectorAll('.head-thumbs > div'));
+  const label = document.getElementById('thumb-label');
+  thumbEls.forEach((el) => {
+    el.addEventListener('click', () => {
+      thumbEls.forEach((t) => t.classList.remove('active'));
+      el.classList.add('active');
+      if (label) label.textContent = `${el.getAttribute('data-thumb')}  ·  drop product photo`;
+    });
+  });
+
+  // Sticky section-nav scroll-spy.
+  const spyLinks = Array.from(document.querySelectorAll('.section-nav a[data-spy]'));
+  const ids = spyLinks.map((a) => a.getAttribute('data-spy'));
+  function onScroll() {
+    const y = window.scrollY + 150;
+    let idx = 0;
+    ids.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= y) idx = i;
+    });
+    spyLinks.forEach((a, i) => a.classList.toggle('active', i === idx));
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

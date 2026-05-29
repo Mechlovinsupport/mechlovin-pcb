@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import PcbCard from '../components/PcbCard.astro';
+import { getCollection } from 'astro:content';
+import { LAYOUTS } from '../data/labels.js';
+
+const pcbEntries = await getCollection('pcbs');
+const pcbs = pcbEntries.map((e) => e.data);
+const total = pcbs.length;
+
+const counts = Object.fromEntries(LAYOUTS.map((l) => [l, pcbs.filter((p) => p.layout === l).length]));
+const featured = pcbs.filter((p) => p.featured).slice(0, 6);
+
+const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+const guides = [
+  { idx: '01', title: 'Flashing firmware with QMK Toolbox', desc: 'Install, enter DFU mode, and flash a .hex in about 5 minutes.', tag: 'Firmware', href: guideHref },
+  { idx: '02', title: 'Customizing your keymap with VIA', desc: 'Remap keys, build layers, and assign macros — no re-flashing.', tag: 'VIA', href: '#' },
+  { idx: '03', title: 'Building firmware from source', desc: "Compile your own QMK build to unlock features VIA doesn't expose.", tag: 'QMK', href: '#' },
+];
+---
+<Base title="Mechlovin Studio — PCB Resource Hub">
+  <header class="home-hero">
+    <div class="eyebrow">Mechlovin' Studio · PCB resource hub</div>
+    <h1>Specs, layouts, and firmware for every Mechlovin PCB.</h1>
+    <p class="lede">
+      One place for everything you need to build and maintain your keyboard — full specifications,
+      supported layouts, firmware and VIA downloads, compatibility notes, and step-by-step guides.
+    </p>
+    <form class="home-search" id="home-search" action="/pcbs" method="get">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input name="q" placeholder={`Search ${total} PCBs by name or layout…`} />
+      <span class="kbd">⏎</span>
+    </form>
+    <div class="home-layout-chips">
+      <span class="label">Jump to a layout</span>
+      {LAYOUTS.map((l) => (
+        <a class="layout-chip" href={`/pcbs#${encodeURIComponent(l)}`}>
+          {l} <span class="cnt">{counts[l]}</span>
+        </a>
+      ))}
+    </div>
+  </header>
+
+  <section class="home-section">
+    <div class="home-section-head"><h2>Start here</h2></div>
+    <div class="pathways">
+      <a class="pathway" href="/pcbs">
+        <div class="pathway-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h.01M11 9h.01M15 9h.01M7 13h10"/></svg>
+        </div>
+        <h3>Browse PCBs <span class="pathway-arrow">→</span></h3>
+        <p>Every board, filterable by layout. Specs, supported layouts, and downloads on each page.</p>
+        <div class="pathway-meta">{total} PCBs · 5 layouts</div>
+      </a>
+      <a class="pathway" href="/compatibility">
+        <div class="pathway-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3>Compatibility check <span class="pathway-arrow">→</span></h3>
+        <p>Filter boards by switch type, mount style, and features to find what fits your build.</p>
+        <div class="pathway-meta">Case · plate · switch · mount</div>
+      </a>
+      <a class="pathway" href={guideHref}>
+        <div class="pathway-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+        </div>
+        <h3>Build guides <span class="pathway-arrow">→</span></h3>
+        <p>Step-by-step instructions for flashing firmware, setting up VIA, and troubleshooting.</p>
+        <div class="pathway-meta">Firmware · VIA · QMK</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <div class="home-section-head">
+      <h2>Featured PCBs</h2>
+      <a class="view-all" href="/pcbs">View all {total} →</a>
+    </div>
+    <div class="pcb-grid">
+      {featured.map((p) => <PcbCard pcb={p} />)}
+    </div>
+  </section>
+
+  <section class="home-section">
+    <div class="home-section-head">
+      <h2>Build guides</h2>
+      <a class="view-all" href={guideHref}>All guides →</a>
+    </div>
+    <div class="guides-list">
+      {guides.map((g) => (
+        <a class="guide-row" href={g.href}>
+          <span class="idx">{g.idx}</span>
+          <span class="guide-info">
+            <span class="title">{g.title}</span>
+            <span class="desc">{g.desc}</span>
+          </span>
+          <span class="guide-tag">{g.tag}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Hero search navigates to the PCBs listing (matching the prototype).
+  const form = document.getElementById('home-search');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    window.location.href = '/pcbs';
+  });
+</script>

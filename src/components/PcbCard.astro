@@ -1,0 +1,26 @@
+---
+import { FEATURE_LABELS, CONNECTOR_LABELS } from '../data/labels.js';
+// `pcb` is a plain PCB data object. `metaMode` controls the small meta line:
+//   'rev' (default) → "Rev. 1.2 · USB-C"     'connector' → "Daughterboard (JST)"
+const { pcb, metaMode = 'rev' } = Astro.props;
+const meta = metaMode === 'connector'
+  ? CONNECTOR_LABELS[pcb.connector]
+  : `Rev. ${pcb.rev} · ${pcb.connection === 'wireless' ? 'Wireless · USB-C' : 'USB-C'}`;
+---
+<a class="pcb-card" href={`/pcb/${pcb.slug}`}>
+  <div class="pcb-card-image">
+    {pcb.heroImage
+      ? <img src={pcb.heroImage} alt={pcb.name} style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+      : <div class="placeholder"><span class="mono">{pcb.name}</span></div>}
+  </div>
+  <div class="pcb-card-body">
+    <div class="pcb-card-head">
+      <span class="pcb-card-name">{pcb.name}</span>
+      <span class="pcb-card-layout">{pcb.layout}</span>
+    </div>
+    <div class="pcb-card-meta mono">{meta}</div>
+    <div class="pcb-card-chips">
+      {pcb.features.map((f) => <span class="chip">{FEATURE_LABELS[f] ?? f}</span>)}
+    </div>
+  </div>
+</a>

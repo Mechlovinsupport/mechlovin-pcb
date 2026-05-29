@@ -1,0 +1,16 @@
+---
+const { specs = [] } = Astro.props;
+---
+<section class="section" id="specs">
+  <h2>Specifications</h2>
+  <div class="section-sub">Board-level parameters.</div>
+  {specs.length > 0 ? (
+    <div class="specs-flat">
+      {specs.map((s) => (
+        <div class="spec-row"><div class="k">{s.key}</div><div class="v">{s.value}</div></div>
+      ))}
+    </div>
+  ) : (
+    <p class="section-sub">Not documented yet — add specifications in the CMS.</p>
+  )}
+</section>

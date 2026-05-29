@@ -1,0 +1,26 @@
+---
+const { compatibility = [], name } = Astro.props;
+---
+<section class="section" id="compatibility">
+  <h2>Compatibility notes</h2>
+  <div class="section-sub">What's tested, what to avoid. For the cross-PCB compatibility tool, see Compatibility check.</div>
+  {compatibility.length > 0 ? (
+    <div class="compat-notes">
+      <p class="compat-intro">
+        {name} fits a range of cases and switch types. The notes below cover what's tested and what to
+        avoid. For a generic case + plate + switch checker that works across all PCBs, see the
+        <a href="/compatibility" style="color: var(--accent)"> Compatibility check</a>.
+      </p>
+      <div class="compat-groups">
+        {compatibility.map((g) => (
+          <div class="compat-note">
+            <div class="compat-note-title">{g.title}</div>
+            <div class="compat-note-body">{g.body}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ) : (
+    <p class="section-sub">No compatibility notes yet — add cases, plates, switches, and stabilizer notes in the CMS.</p>
+  )}
+</section>

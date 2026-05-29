@@ -1,0 +1,35 @@
+---
+const { downloads = [] } = Astro.props;
+const basename = (p) => (p || '').split('/').pop();
+const ext = (p) => {
+  const b = basename(p);
+  const i = b.lastIndexOf('.');
+  return i >= 0 ? b.slice(i + 1) : 'file';
+};
+---
+<section class="section" id="downloads">
+  <h2>Downloads</h2>
+  <div class="section-sub">Firmware, keymap, and 3D model files.</div>
+  {downloads.length > 0 ? (
+    <div class="downloads-grid">
+      {downloads.map((d) => (
+        <div class="download-card">
+          <div class="download-card-kind">{d.kind}</div>
+          <div class="download-card-file mono">{basename(d.file)}</div>
+          <p class="download-card-desc">{d.description}</p>
+          <div class="download-card-actions">
+            <a class="btn btn-primary btn-sm" href={d.file} download>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+              Download .{ext(d.file)}
+            </a>
+            {d.external && (
+              <a href={d.external} class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Open ↗</a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <p class="section-sub">No downloads yet — add firmware, VIA JSON, or 3D files in the CMS.</p>
+  )}
+</section>

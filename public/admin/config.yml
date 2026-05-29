@@ -1,0 +1,166 @@
+# Decap CMS configuration.
+# 1. Replace YOUR-GITHUB-USERNAME below with your GitHub user/org.
+# 2. Commit + deploy, then visit  https://your-site/admin  and log in with GitHub.
+
+backend:
+  name: github
+  repo: Mechlovinsupport/mechlovin-pcb
+  branch: main
+
+# Uploaded images go here, and are served from /images.
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pcbs"
+    label: "PCBs"
+    label_singular: "PCB"
+    folder: "src/content/pcbs"
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{name}} — {{layout}} · {{rev}}"
+    sortable_fields: ['name', 'layout', 'released']
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - { name: slug, label: "URL slug", widget: string, hint: "Becomes /pcb/<slug>" }
+      - { name: subtitle, label: "Subtitle", widget: string }
+      - { name: rev, label: "Revision", widget: string }
+      - { name: status, label: "Status", widget: select, options: ["in-production", "in-development", "discontinued"], default: "in-production" }
+      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Numpad"] }
+      - { name: released, label: "Released", widget: string }
+      - { name: featured, label: "Featured on home page", widget: boolean, default: false }
+      - { name: heroImage, label: "Hero image", widget: image, required: false }
+      - { name: layoutSvg, label: "Layout SVG", widget: file, required: false, media_folder: "/public/layouts", public_folder: "/layouts", hint: "Export from keyboard-layout-editor.com → Download SVG" }
+      - { name: lede, label: "Description", widget: text }
+
+      - label: "Switch support"
+        name: switches
+        widget: select
+        multiple: true
+        options: ["mx", "lp"]
+        default: ["mx"]
+      - label: "Features"
+        name: features
+        widget: select
+        multiple: true
+        options: ["hot-swap", "per-key-rgb", "encoder", "wireless"]
+        required: false
+      - { name: connection, label: "Connection", widget: select, options: ["wired", "wireless"], default: "wired" }
+      - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"], default: "onboard", hint: "How the USB-C port is wired" }
+      - label: "Mount styles"
+        name: mount
+        widget: select
+        multiple: true
+        options: ["tray", "gasket", "top-mount", "integrated"]
+        required: false
+
+      - label: "Specifications"
+        name: specs
+        widget: list
+        summary: "{{fields.key}}: {{fields.value}}"
+        required: false
+        fields:
+          - { name: key, label: "Key", widget: string }
+          - { name: value, label: "Value", widget: string }
+
+      - label: "Downloads"
+        name: downloads
+        widget: list
+        summary: "{{fields.kind}} — {{fields.file}}"
+        required: false
+        fields:
+          - { name: kind, label: "Kind", widget: string, hint: "QMK Firmware / VIA JSON / 3D Model" }
+          - { name: file, label: "File", widget: file, media_folder: "/public/files", public_folder: "/files" }
+          - { name: description, label: "Description", widget: string }
+          - { name: external, label: "External link", widget: string, required: false }
+
+      - label: "Compatibility notes"
+        name: compatibility
+        widget: list
+        summary: "{{fields.title}}"
+        required: false
+        fields:
+          - { name: title, label: "Heading", widget: string, hint: "Cases / Plates / Switches / Stabilizers" }
+          - { name: body, label: "Notes", widget: text }
+
+      - label: "Changelog"
+        name: changelog
+        widget: list
+        summary: "{{fields.rev}} ({{fields.date}})"
+        required: false
+        fields:
+          - { name: rev, label: "Revision", widget: string }
+          - { name: date, label: "Date", widget: string }
+          - { name: current, label: "Current revision", widget: boolean, default: false }
+          - { name: summary, label: "Summary", widget: text }
+          - label: "Changes"
+            name: items
+            widget: list
+            required: false
+            summary: "{{fields.kind}}: {{fields.text}}"
+            fields:
+              - { name: kind, label: "Type", widget: select, options: ["add", "fix", "chg", "rm"] }
+              - { name: text, label: "Description", widget: string }
+
+      - label: "Vendors"
+        name: vendors
+        widget: list
+        summary: "{{fields.name}} — {{fields.price}}"
+        required: false
+        fields:
+          - { name: name, label: "Vendor", widget: string }
+          - { name: region, label: "Region", widget: string }
+          - { name: stock, label: "Stock", widget: select, options: ["in", "low", "out"] }
+          - { name: price, label: "Price", widget: string }
+          - { name: shipping, label: "Shipping", widget: string }
+          - { name: url, label: "Store URL", widget: string }
+
+  - name: "keyboards"
+    label: "Keyboards / cases (compatibility DB)"
+    label_singular: "Keyboard"
+    folder: "src/content/keyboards"
+    create: true
+    summary: "{{name}} — {{vendor}} · {{layout}}"
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - { name: aliases, label: "Search aliases", widget: list, required: false, hint: "Lowercase nicknames people search for, e.g. tofu65" }
+      - { name: vendor, label: "Vendor", widget: string }
+      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Numpad"] }
+      - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"] }
+      - label: "Compatible PCBs"
+        name: matches
+        widget: list
+        required: false
+        summary: "{{fields.pcb}} ({{fields.fit}})"
+        fields:
+          - { name: pcb, label: "PCB", widget: relation, collection: "pcbs", search_fields: ["name", "slug"], value_field: "slug", display_fields: ["name"] }
+          - { name: fit, label: "Fit", widget: select, options: ["direct", "mods"] }
+          - { name: note, label: "Note", widget: string }
+
+  - name: "guides"
+    label: "Build guides"
+    label_singular: "Guide"
+    folder: "src/content/guides"
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{title}}"
+    fields:
+      - { name: title, label: "Title", widget: string }
+      - { name: slug, label: "URL slug", widget: string, hint: "Becomes /guides/<slug>" }
+      - { name: tag, label: "Tag", widget: string, required: false }
+      - { name: order, label: "Order", widget: number, default: 99, value_type: int }
+      - { name: platform, label: "Platform", widget: string, required: false }
+      - { name: difficulty, label: "Difficulty", widget: string, required: false }
+      - { name: time, label: "Time", widget: string, required: false }
+      - { name: updated, label: "Updated", widget: string, required: false }
+      - { name: lede, label: "Intro (HTML allowed)", widget: text }
+      - label: "Table of contents"
+        name: toc
+        widget: list
+        required: false
+        summary: "{{fields.num}} {{fields.label}}"
+        fields:
+          - { name: id, label: "Section id", widget: string, hint: "Must match the section id in the body" }
+          - { name: num, label: "Number", widget: string }
+          - { name: label, label: "Label", widget: string }
+      - { name: body, label: "Body (HTML / Markdown)", widget: markdown }

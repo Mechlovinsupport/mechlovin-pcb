@@ -1,0 +1,14 @@
+---
+const { layoutSvg, name } = Astro.props;
+---
+<section class="section" id="layouts">
+  <h2>Supported layouts</h2>
+  <div class="section-sub">All layout options shown together. Exported from keyboard-layout-editor.com (Download SVG).</div>
+  {layoutSvg ? (
+    <div class="kle-stage">
+      <img src={layoutSvg} alt={`${name} supported layouts`} class="layout-svg" />
+    </div>
+  ) : (
+    <p class="section-sub">No layout diagram yet — upload a KLE “Download SVG” export in the CMS.</p>
+  )}
+</section>

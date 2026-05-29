@@ -1,0 +1,26 @@
+---
+// Top navigation — appears on every page. `active` highlights the current section.
+const { active } = Astro.props;
+const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+---
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="wordmark">
+      <span>mechlovin</span>
+      <span class="dot"></span>
+      <span class="wordmark-sub">studio · pcb</span>
+    </a>
+    <div class="topnav-links">
+      <a href="/pcbs" class={active === 'pcbs' ? 'active' : ''}>PCBs</a>
+      <a href="/compatibility" class={active === 'compatibility' ? 'active' : ''}>Compatibility check</a>
+      <a href={guideHref} class={active === 'guide' ? 'active' : ''}>Build guide</a>
+    </div>
+    <div class="topnav-right">
+      <div class="search">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input placeholder="Search PCBs, firmware…" />
+        <span class="kbd">⌘K</span>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import CompatTool from '../components/CompatTool.jsx';
+import { getCollection } from 'astro:content';
+
+const pcbs = (await getCollection('pcbs')).map((e) => e.data);
+
+// Flatten keyboard entries into plain objects for the island, resolving the
+// PCB reference on each match down to a plain slug string.
+const keyboards = (await getCollection('keyboards')).map((e) => ({
+  name: e.data.name,
+  aliases: e.data.aliases,
+  vendor: e.data.vendor,
+  layout: e.data.layout,
+  connector: e.data.connector,
+  matches: e.data.matches.map((m) => ({ pcb: m.pcb.id, fit: m.fit, note: m.note })),
+}));
+---
+<Base title="Compatibility check — Mechlovin Studio" active="compatibility">
+  <header class="compat-header">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span style="color: var(--ink-2)">Compatibility check</span>
+    </div>
+    <div class="compat-header-row">
+      <div>
+        <h1>Compatibility check</h1>
+        <p class="compat-lede">
+          Find out which Mechlovin PCB fits your keyboard. Start by searching the case you own —
+          if there's no exact match, narrow by specs or ask our team.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <CompatTool pcbs={pcbs} keyboards={keyboards} client:load />
+</Base>

@@ -1,0 +1,1940 @@
+
+  <svg width="1137px" height="435px" viewBox="0 0 1137 435" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    
+    <defs>
+      <linearGradient id="DCS">
+        <stop offset="0%" stop-color="black" stop-opacity="0"></stop>
+        <stop offset="40%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="60%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+      </linearGradient>
+      <linearGradient id="SPACE" x1="0%" x2="0%" y1="0%" y2="100%">
+        <stop offset="0%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="20%" stop-color="black" stop-opacity="0.0"></stop>
+        <stop offset="40%" stop-color="black" stop-opacity="0.0"></stop>
+        <stop offset="100%" stop-color="black" stop-opacity="0.1"></stop>
+      </linearGradient>
+      <radialGradient id="DSA">
+        <stop offset="0%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="10%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient id="SA" xlink:href="#DSA"></radialGradient>
+    </defs>
+
+    <g transform="translate(10,10)">
+      <rect width="1117" height="415" stroke="#ddd" stroke-width="1" fill="#eeeeee" rx="6"></rect>
+      <g transform="translate(5,5)">
+        
+  <g class="  keycap">
+
+  
+    
+    <rect x="136" y="1" width="52" height="52" rx="5" fill="#777777" class="outer border"></rect>
+    
+    
+    <rect x="136" y="1" width="52" height="52" rx="5" fill="#777777"></rect>
+    
+
+    
+      
+      <rect x="142" y="4" width="40" height="40" rx="5" fill="#929292" class="inner border"></rect>
+      
+      
+      <rect x="142" y="4" width="40" height="40" rx="5" fill="#929292"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="190" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="190" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="196" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="196" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="244" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="244" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="250" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="250" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="298" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="298" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="304" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="304" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="352" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="352" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="358" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="358" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="406" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="406" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="412" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="412" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="460" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="460" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="466" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="466" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="514" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="514" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="520" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="520" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="568" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="568" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="574" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="574" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="622" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="622" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="628" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="628" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="676" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="676" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="682" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="682" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="730" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="730" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="736" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="736" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="784" y="1" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="784" y="1" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="790" y="4" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="790" y="4" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="838" y="1" width="106" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="838" y="1" width="106" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="844" y="4" width="94" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="844" y="4" width="94" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="959.5" y="1" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="959.5" y="1" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="965.5" y="4" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="965.5" y="4" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="1013.5" y="1" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="1013.5" y="1" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="1019.5" y="4" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="1019.5" y="4" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="136" y="55" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="136" y="55" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="142" y="58" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="142" y="58" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="217" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="217" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="223" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="223" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="271" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="271" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="277" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="277" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="325" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="325" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="331" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="331" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="379" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="379" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="385" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="385" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="433" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="433" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="439" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="439" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="487" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="487" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="493" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="493" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="541" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="541" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="547" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="547" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="595" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="595" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="601" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="601" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="649" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="649" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="655" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="655" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="703" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="703" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="709" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="709" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="757" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="757" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="763" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="763" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="811" y="55" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="811" y="55" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="817" y="58" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="817" y="58" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="865" y="55" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="865" y="55" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="871" y="58" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="871" y="58" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="1013.5" y="55" width="65.5" height="106" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+      <rect x="1000" y="55" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="1013.5" y="55" width="65.5" height="106" rx="5" fill="#aaaaaa"></rect>
+    
+      <rect x="1000" y="55" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="1019.5" y="58" width="53.5" height="94" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+        <rect x="1006" y="58" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="1019.5" y="58" width="53.5" height="94" rx="5" fill="#d2d2d2"></rect>
+      
+        <rect x="1006" y="58" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="1" y="109" width="65.5" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+      <rect x="1" y="109" width="92.5" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="1" y="109" width="65.5" height="52" rx="5" fill="#cccccc"></rect>
+    
+      <rect x="1" y="109" width="92.5" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="7" y="112" width="53.5" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="7" y="112" width="53.5" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="136" y="109" width="92.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="136" y="109" width="92.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="142" y="112" width="80.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="142" y="112" width="80.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="230.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="230.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="236.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="236.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="284.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="284.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="290.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="290.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="338.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="338.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="344.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="344.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="392.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="392.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="398.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="398.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="446.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="446.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="452.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="452.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="500.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="500.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="506.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="506.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="554.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="554.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="560.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="560.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="608.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="608.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="614.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="614.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="662.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="662.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="668.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="668.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="716.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="716.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="722.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="722.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="770.5" y="109" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="770.5" y="109" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="776.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="776.5" y="112" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="824.5" y="109" width="119.5" height="52" rx="5" fill="#777777" class="outer border"></rect>
+    
+    
+    <rect x="824.5" y="109" width="119.5" height="52" rx="5" fill="#777777"></rect>
+    
+
+    
+      
+      <rect x="830.5" y="112" width="107.5" height="40" rx="5" fill="#929292" class="inner border"></rect>
+      
+      
+      <rect x="830.5" y="112" width="107.5" height="40" rx="5" fill="#929292"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="959.5" y="109" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="959.5" y="109" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="965.5" y="112" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="965.5" y="112" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="1" y="163" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="1" y="163" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="7" y="166" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="7" y="166" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="68.5" y="163" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="68.5" y="163" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="74.5" y="166" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="74.5" y="166" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="136" y="163" width="119.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="136" y="163" width="119.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="142" y="166" width="107.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="142" y="166" width="107.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="257.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="257.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="263.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="263.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="311.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="311.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="317.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="317.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="365.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="365.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="371.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="371.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="419.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="419.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="425.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="425.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="473.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="473.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="479.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="479.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="527.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="527.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="533.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="533.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="581.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="581.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="587.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="587.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="635.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="635.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="641.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="641.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="689.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="689.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="695.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="695.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="743.5" y="163" width="52" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="743.5" y="163" width="52" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="749.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="749.5" y="166" width="40" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="797.5" y="163" width="92.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="797.5" y="163" width="92.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="803.5" y="166" width="80.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="803.5" y="166" width="80.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="892" y="163" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="892" y="163" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="898" y="166" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="898" y="166" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="959.5" y="163" width="146.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="959.5" y="163" width="146.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="965.5" y="166" width="134.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="965.5" y="166" width="134.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="136" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="136" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="142" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="142" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="203.5" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="203.5" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="209.5" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="209.5" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="271" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="271" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="277" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="277" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="338.5" y="217" width="335.5" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="338.5" y="217" width="335.5" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="344.5" y="220" width="323.5" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="344.5" y="220" width="323.5" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="676" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="676" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="682" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="682" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="743.5" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="743.5" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="749.5" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="749.5" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="811" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="811" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="817" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="817" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="878.5" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="878.5" y="217" width="65.5" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="884.5" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="884.5" y="220" width="53.5" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="136" y="298" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="136" y="298" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="142" y="301" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="142" y="301" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="217" y="298" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="217" y="298" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="223" y="301" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="223" y="301" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="271" y="298" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="271" y="298" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="277" y="301" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="277" y="301" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="352" y="298" width="376" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="352" y="298" width="376" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="358" y="301" width="364" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="358" y="301" width="364" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="730" y="298" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="730" y="298" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="736" y="301" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="736" y="301" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="811" y="298" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="811" y="298" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="817" y="301" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="817" y="301" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="865" y="298" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="865" y="298" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="871" y="301" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="871" y="301" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class=" decal keycap">
+
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="217" y="352" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="217" y="352" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="223" y="355" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="223" y="355" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="271" y="352" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="271" y="352" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="277" y="355" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="277" y="355" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="352" y="352" width="376" height="52" rx="5" fill="#cccccc" class="outer border"></rect>
+    
+    
+    <rect x="352" y="352" width="376" height="52" rx="5" fill="#cccccc"></rect>
+    
+
+    
+      
+      <rect x="358" y="355" width="364" height="40" rx="5" fill="#fcfcfc" class="inner border"></rect>
+      
+      
+      <rect x="358" y="355" width="364" height="40" rx="5" fill="#fcfcfc"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="730" y="352" width="79" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="730" y="352" width="79" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="736" y="355" width="67" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="736" y="355" width="67" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class="  keycap">
+
+  
+    
+    <rect x="811" y="352" width="52" height="52" rx="5" fill="#aaaaaa" class="outer border"></rect>
+    
+    
+    <rect x="811" y="352" width="52" height="52" rx="5" fill="#aaaaaa"></rect>
+    
+
+    
+      
+      <rect x="817" y="355" width="40" height="40" rx="5" fill="#d2d2d2" class="inner border"></rect>
+      
+      
+      <rect x="817" y="355" width="40" height="40" rx="5" fill="#d2d2d2"></rect>
+      
+      
+
+     
+   
+  </g>
+
+  <g class=" decal keycap">
+
+   
+  </g>
+
+      </g>
+    </g>
+  </svg>

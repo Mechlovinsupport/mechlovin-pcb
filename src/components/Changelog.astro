@@ -1,0 +1,33 @@
+---
+const { changelog = [] } = Astro.props;
+---
+<section class="section" id="changelog">
+  <h2>Revision changelog</h2>
+  <div class="section-sub">{changelog.length} revision{changelog.length === 1 ? '' : 's'}.</div>
+  {changelog.length > 0 ? (
+    <div class="changelog">
+      {changelog.map((entry) => (
+        <div class="changelog-entry">
+          <div class="meta">
+            <div class="rev">{entry.rev}</div>
+            <div class="date">{entry.date}</div>
+            {entry.current && <div class="badge-current">current</div>}
+          </div>
+          <div>
+            <div class="summary">{entry.summary}</div>
+            <ul>
+              {entry.items.map((it) => (
+                <li>
+                  <span class={`kind ${it.kind}`}>{it.kind.toUpperCase()}</span>
+                  <span>{it.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <p class="section-sub">No changelog yet — add revision history in the CMS.</p>
+  )}
+</section>

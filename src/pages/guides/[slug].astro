@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const g = entry.data;
+const { Content } = await render(entry);
+const meta = [
+  ['Platform', g.platform],
+  ['Difficulty', g.difficulty],
+  ['Time', g.time],
+  ['Updated', g.updated],
+].filter(([, v]) => v);
+---
+<Base title={`${g.title} — Mechlovin Studio`} description={g.lede} active="guide">
+  <header class="guide-header">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/guides">Build Guides</a>
+      <span class="sep">/</span>
+      <span style="color: var(--ink-2)">{g.title}</span>
+    </div>
+    <h1 style="margin-top: 16px">{g.title}</h1>
+    <p class="lede" set:html={g.lede} />
+    <div class="guide-meta">
+      {meta.map(([k, v]) => <span><strong>{k}</strong> · {v}</span>)}
+    </div>
+  </header>
+
+  <div class="guide-body">
+    <aside class="guide-toc">
+      <div class="guide-toc-title">On this page</div>
+      <ol>
+        {g.toc.map((it) => (
+          <li>
+            <a href={`#${it.id}`} data-spy={it.id}>
+              <span class="num">{it.num}</span>
+              <span>{it.label}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </aside>
+    <main class="guide-content">
+      <Content />
+    </main>
+  </div>
+</Base>
+
+<script>
+  // Scroll-spy: highlight the active section in the table of contents.
+  const links = Array.from(document.querySelectorAll('.guide-toc a[data-spy]'));
+  const ids = links.map((a) => a.getAttribute('data-spy'));
+  function onScroll() {
+    const y = window.scrollY + 120;
+    let current = 0;
+    ids.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= y) current = i;
+    });
+    links.forEach((a, i) => a.classList.toggle('active', i === current));
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

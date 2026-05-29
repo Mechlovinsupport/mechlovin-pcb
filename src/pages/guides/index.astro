@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Build guides — Mechlovin Studio" active="guide">
+  <header class="compat-header">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span style="color: var(--ink-2)">Build Guides</span>
+    </div>
+    <div class="compat-header-row">
+      <div>
+        <h1>Build guides</h1>
+        <p class="compat-lede">
+          Step-by-step instructions for flashing firmware, setting up VIA, and troubleshooting your build.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="home-section" style="border-bottom: none">
+    <div class="guides-list">
+      {guides.map((g, i) => (
+        <a class="guide-row" href={`/guides/${g.data.slug}`}>
+          <span class="idx">{String(i + 1).padStart(2, '0')}</span>
+          <span class="guide-info">
+            <span class="title">{g.data.title}</span>
+            <span class="desc">{g.data.lede.replace(/<[^>]+>/g, '')}</span>
+          </span>
+          <span class="guide-tag">{g.data.tag}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

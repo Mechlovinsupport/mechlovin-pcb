@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import LayoutFilter from '../components/LayoutFilter.jsx';
+import { getCollection } from 'astro:content';
+
+const pcbEntries = await getCollection('pcbs');
+const pcbs = pcbEntries.map((e) => e.data);
+const total = pcbs.length;
+---
+<Base title="All PCBs — Mechlovin Studio" active="pcbs">
+  <header class="compat-header">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span style="color: var(--ink-2)">PCBs</span>
+    </div>
+    <div class="compat-header-row">
+      <div>
+        <h1>All PCBs</h1>
+        <p class="compat-lede">
+          Every Mechlovin PCB. Each board has full specs, supported layouts, firmware downloads,
+          and compatibility notes. Filter by layout below.
+        </p>
+      </div>
+      <div class="compat-summary">
+        <div class="compat-count">
+          <span class="num">{total}</span>
+          <span class="label">PCBs</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="pcbs-body">
+    <LayoutFilter pcbs={pcbs} client:load />
+  </div>
+</Base>
