@@ -20,8 +20,8 @@ export const CONNECTOR_LABELS = {
   daughterboard: 'Daughterboard (JST)',
 };
 
-export const LAYOUTS = ['60%', '65%', '75%', 'TKL', 'Full-Size', 'Ergo'];
+export const LAYOUTS = ['60%', '65%', '75%', 'TKL', 'Full-Size', 'Ergo', 'Others'];
 
-export const LAYOUT_ORDER = { '60%': 0, '65%': 1, '75%': 2, 'TKL': 3, 'Full-Size': 4, 'Ergo': 5 };
+export const LAYOUT_ORDER = { '60%': 0, '65%': 1, '75%': 2, 'TKL': 3, 'Full-Size': 4, 'Ergo': 5, 'Others': 6 };
 
 export const MECHLOVIN_DISCORD = 'https://discord.gg/mechlovin';

@@ -15,28 +15,33 @@ const arr = (inner) =>
     z.array(inner)
   );
 
+// Tolerant enum: an emptied optional select arrives as '' or null — fall back to
+// the default instead of failing the build.
+const optEnum = (values, def) =>
+  z.preprocess((v) => (v === '' || v == null ? def : v), z.enum(values));
+
 const pcbs = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pcbs' }),
   schema: z.object({
-    name: z.string(),
-    slug: z.string(),
-    // Everything below is optional with sensible defaults, so a freshly-indexed
-    // PCB can carry just a name + slug and be filled in later via the CMS.
+    // Every field is optional — the CMS form mirrors this. The page routes by
+    // the file name when `slug` is blank (see pages), so entries never break.
+    name: z.string().default(''),
+    slug: z.string().default(''),
     subtitle: z.string().default(''),
     rev: z.string().default(''),
-    status: z.enum(['in-production', 'in-development', 'discontinued']).default('in-production'),
-    layout: z.string().default(''),     // "60%", "65%", "75%", "TKL", "Full-Size", "Ergo"
+    status: optEnum(['in-production', 'in-development', 'discontinued'], 'in-production'),
+    layout: z.string().default(''),     // "60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"
     released: z.string().default(''),
     heroImage: z.string().optional(),
     layoutSvg: z.string().optional(),   // KLE "Download SVG" export, in /public/layouts
     lede: z.string().default(''),
-    featured: z.boolean().default(false),
+    featured: z.preprocess((v) => (v == null || v === '' ? false : v), z.boolean()),
 
     // For the compatibility tool's filters:
     switches: arr(z.enum(['mx', 'lp'])),
     features: arr(z.string()),          // 'hot-swap','per-key-rgb','encoder','wireless'
-    connection: z.enum(['wired', 'wireless']).default('wired'),
-    connector: z.enum(['onboard', 'daughterboard']).default('onboard'),
+    connection: optEnum(['wired', 'wireless'], 'wired'),
+    connector: optEnum(['onboard', 'daughterboard'], 'onboard'),
     mount: arr(z.string()),
 
     specs: arr(z.object({

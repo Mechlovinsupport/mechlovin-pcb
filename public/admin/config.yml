@@ -19,21 +19,22 @@ collections:
     label_singular: "PCB"
     folder: "src/content/pcbs"
     create: true
-    slug: "{{fields.slug}}"
+    identifier_field: name
+    slug: "{{slug}}"
     summary: "{{name}} — {{layout}} · {{rev}}"
     sortable_fields: ['name', 'layout', 'released']
     fields:
-      - { name: name, label: "Name", widget: string }
-      - { name: slug, label: "URL slug", widget: string, hint: "Becomes /pcb/<slug>" }
-      - { name: subtitle, label: "Subtitle", widget: string }
-      - { name: rev, label: "Revision", widget: string }
-      - { name: status, label: "Status", widget: select, options: ["in-production", "in-development", "discontinued"], default: "in-production" }
-      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo"] }
-      - { name: released, label: "Released", widget: string }
-      - { name: featured, label: "Featured on home page", widget: boolean, default: false }
+      - { name: name, label: "Name", widget: string, required: false }
+      - { name: slug, label: "URL slug", widget: string, required: false, hint: "Optional. Becomes /pcb/<slug>; defaults to the name if left blank." }
+      - { name: subtitle, label: "Subtitle", widget: string, required: false }
+      - { name: rev, label: "Revision", widget: string, required: false }
+      - { name: status, label: "Status", widget: select, options: ["in-production", "in-development", "discontinued"], default: "in-production", required: false }
+      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"], required: false }
+      - { name: released, label: "Released", widget: string, required: false }
+      - { name: featured, label: "Featured on home page", widget: boolean, default: false, required: false }
       - { name: heroImage, label: "Hero image", widget: image, required: false }
       - { name: layoutSvg, label: "Layout SVG", widget: file, required: false, media_folder: "/public/layouts", public_folder: "/layouts", hint: "Export from keyboard-layout-editor.com → Download SVG" }
-      - { name: lede, label: "Description", widget: text }
+      - { name: lede, label: "Description", widget: text, required: false }
 
       - label: "Switch support"
         name: switches
@@ -41,14 +42,15 @@ collections:
         multiple: true
         options: ["mx", "lp"]
         default: ["mx"]
+        required: false
       - label: "Features"
         name: features
         widget: select
         multiple: true
         options: ["hot-swap", "per-key-rgb", "encoder", "wireless"]
         required: false
-      - { name: connection, label: "Connection", widget: select, options: ["wired", "wireless"], default: "wired" }
-      - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"], default: "onboard", hint: "How the USB-C port is wired" }
+      - { name: connection, label: "Connection", widget: select, options: ["wired", "wireless"], default: "wired", required: false }
+      - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"], default: "onboard", required: false, hint: "How the USB-C port is wired" }
       - label: "Mount styles"
         name: mount
         widget: select
@@ -127,7 +129,7 @@ collections:
       - { name: name, label: "Name", widget: string }
       - { name: aliases, label: "Search aliases", widget: list, required: false, hint: "Lowercase nicknames people search for, e.g. tofu65" }
       - { name: vendor, label: "Vendor", widget: string }
-      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo"] }
+      - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"] }
       - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"] }
       - label: "Compatible PCBs"
         name: matches

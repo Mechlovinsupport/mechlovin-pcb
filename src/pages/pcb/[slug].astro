@@ -10,10 +10,13 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const pcbs = await getCollection('pcbs');
-  return pcbs.map((entry) => ({
-    params: { slug: entry.data.slug },
-    props: { pcb: entry.data },
-  }));
+  return pcbs.map((entry) => {
+    const slug = entry.data.slug || entry.id;
+    return {
+      params: { slug },
+      props: { pcb: { ...entry.data, slug } },
+    };
+  });
 }
 
 const { pcb } = Astro.props;

@@ -4,7 +4,7 @@ import LayoutFilter from '../components/LayoutFilter.jsx';
 import { getCollection } from 'astro:content';
 
 const pcbEntries = await getCollection('pcbs');
-const pcbs = pcbEntries.map((e) => e.data);
+const pcbs = pcbEntries.map((e) => ({ ...e.data, slug: e.data.slug || e.id }));
 const total = pcbs.length;
 ---
 <Base title="All PCBs — Mechlovin Studio" active="pcbs">

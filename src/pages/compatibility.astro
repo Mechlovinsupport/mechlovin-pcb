@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import CompatTool from '../components/CompatTool.jsx';
 import { getCollection } from 'astro:content';
 
-const pcbs = (await getCollection('pcbs')).map((e) => e.data);
+const pcbs = (await getCollection('pcbs')).map((e) => ({ ...e.data, slug: e.data.slug || e.id }));
 const pcbSlugs = new Set(pcbs.map((p) => p.slug));
 
 // Flatten keyboard entries into plain objects for the island. Drop any match

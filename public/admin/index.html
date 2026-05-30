@@ -8,5 +8,157 @@
 <body>
   <!-- Decap CMS loads here and reads /admin/config.yml -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+  // Live preview pane for the PCB editor: renders the actual detail-page layout
+  // (using the site's real CSS) and updates as you type.
+  (function () {
+    if (!window.CMS) return;
+    var h = window.h || (window.React && window.React.createElement);
+
+    // Load the site fonts + page stylesheet into the preview iframe.
+    CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    CMS.registerPreviewStyle('/cms-preview.css');
+
+    var basename = function (p) { return (p || '').split('/').pop(); };
+    var stockLabel = function (s) { return s === 'in' ? 'In stock' : s === 'low' ? 'Low' : 'Out'; };
+    var muted = function (msg) { return h('p', { className: 'section-sub' }, msg); };
+    var head = function (title, sub) {
+      return [h('h2', { key: 'h' }, title), sub ? h('div', { key: 's', className: 'section-sub' }, sub) : null];
+    };
+
+    function PcbPreview(props) {
+      var entry = props.entry;
+      var d = function (k) { var v = entry.getIn(['data', k]); return v && v.toJS ? v.toJS() : v; };
+
+      var name = d('name') || 'Untitled PCB';
+      var subtitle = d('subtitle') || '';
+      var rev = d('rev') || '';
+      var lede = d('lede') || '';
+      var layout = d('layout') || '';
+      var released = d('released') || '';
+      var connection = d('connection') || 'wired';
+      var switches = d('switches') || [];
+      var features = d('features') || [];
+      var specs = d('specs') || [];
+      var downloads = d('downloads') || [];
+      var compatibility = d('compatibility') || [];
+      var changelog = d('changelog') || [];
+      var vendors = d('vendors') || [];
+      var layoutSvg = d('layoutSvg') || '';
+
+      var swBase = (switches.indexOf('lp') >= 0 && switches.indexOf('mx') < 0) ? 'Low-profile' : 'MX';
+      var swLabel = features.indexOf('hot-swap') >= 0 ? ('Hot-swap ' + swBase) : swBase;
+      var stats = [
+        ['Layout', layout || '—'],
+        ['Switch', (switches.length || features.length) ? swLabel : '—'],
+        ['Revision', rev ? rev.replace(/^Rev\.\s*/, '') : '—'],
+        ['Released', released || '—']
+      ];
+
+      var tags = [];
+      if (rev) tags.push(h('span', { key: 't0', className: 'tag' }, rev));
+      tags.push(h('span', { key: 't1', className: 'tag accent' }, 'QMK · VIA'));
+      if (connection === 'wireless') tags.push(h('span', { key: 't2', className: 'tag' }, 'Wireless'));
+
+      var specsNode = specs.length
+        ? h('div', { className: 'specs-flat' }, specs.map(function (s, i) {
+            return h('div', { className: 'spec-row', key: i }, [
+              h('div', { key: 'k', className: 'k' }, s.key), h('div', { key: 'v', className: 'v' }, s.value)
+            ]);
+          }))
+        : muted('Not documented yet.');
+
+      var layoutNode = layoutSvg
+        ? h('div', { className: 'kle-stage' }, h('img', { src: layoutSvg, className: 'layout-svg', alt: name }))
+        : muted('No layout diagram yet.');
+
+      var dlNode = downloads.length
+        ? h('div', { className: 'downloads-grid' }, downloads.map(function (dn, i) {
+            return h('div', { className: 'download-card', key: i }, [
+              h('div', { key: 'k', className: 'download-card-kind' }, dn.kind || ''),
+              h('div', { key: 'f', className: 'download-card-file mono' }, basename(dn.file)),
+              h('p', { key: 'd', className: 'download-card-desc' }, dn.description || '')
+            ]);
+          }))
+        : muted('No downloads yet.');
+
+      var compatNode = compatibility.length
+        ? h('div', { className: 'compat-notes' },
+            h('div', { className: 'compat-groups' }, compatibility.map(function (g, i) {
+              return h('div', { className: 'compat-note', key: i }, [
+                h('div', { key: 't', className: 'compat-note-title' }, g.title || ''),
+                h('div', { key: 'b', className: 'compat-note-body' }, g.body || '')
+              ]);
+            })))
+        : muted('No compatibility notes yet.');
+
+      var clNode = changelog.length
+        ? h('div', { className: 'changelog' }, changelog.map(function (e, i) {
+            var items = e.items || [];
+            return h('div', { className: 'changelog-entry', key: i }, [
+              h('div', { key: 'm', className: 'meta' }, [
+                h('div', { key: 'r', className: 'rev' }, e.rev || ''),
+                h('div', { key: 'd', className: 'date' }, e.date || ''),
+                e.current ? h('div', { key: 'c', className: 'badge-current' }, 'current') : null
+              ]),
+              h('div', { key: 'b' }, [
+                h('div', { key: 's', className: 'summary' }, e.summary || ''),
+                h('ul', { key: 'u' }, items.map(function (it, j) {
+                  return h('li', { key: j }, [
+                    h('span', { key: 'k', className: 'kind ' + (it.kind || '') }, (it.kind || '').toUpperCase()),
+                    h('span', { key: 't' }, it.text || '')
+                  ]);
+                }))
+              ])
+            ]);
+          }))
+        : muted('No changelog yet.');
+
+      var vNode = vendors.length
+        ? h('table', { className: 'vendor-table' }, [
+            h('thead', { key: 'h' }, h('tr', {}, [
+              h('th', { key: 1 }, 'Vendor'), h('th', { key: 2 }, 'Region'), h('th', { key: 3 }, 'Stock'),
+              h('th', { key: 4 }, 'Price'), h('th', { key: 5 }, 'Shipping')
+            ])),
+            h('tbody', { key: 'b' }, vendors.map(function (v, i) {
+              return h('tr', { key: i }, [
+                h('td', { key: 'n', className: 'name' }, v.name || ''),
+                h('td', { key: 'r', className: 'region' }, v.region || ''),
+                h('td', { key: 's' }, h('span', { className: 'stock ' + (v.stock || '') }, stockLabel(v.stock))),
+                h('td', { key: 'p', className: 'price' }, v.price || ''),
+                h('td', { key: 'sh', className: 'ship' }, v.shipping || '')
+              ]);
+            }))
+          ])
+        : muted('No vendors yet.');
+
+      return h('div', {}, [
+        h('header', { key: 'head', className: 'pagehead' }, [
+          h('div', { key: 'l' }, [
+            h('h1', { key: 'n' }, name),
+            subtitle ? h('div', { key: 'sub', className: 'subtitle' }, subtitle) : null,
+            h('div', { key: 'tags', className: 'tag-row' }, tags),
+            lede ? h('p', { key: 'lede', className: 'lede' }, lede) : null,
+            h('div', { key: 'stats', className: 'head-stats' }, stats.map(function (s, i) {
+              return h('div', { key: i }, [
+                h('div', { key: 'l', className: 'label' }, s[0]), h('div', { key: 'v', className: 'val' }, s[1])
+              ]);
+            }))
+          ]),
+          h('div', { key: 'r' }, h('div', { className: 'head-image' },
+            h('div', { className: 'placeholder' }, h('span', {}, 'product photo'))))
+        ]),
+        h('section', { key: 'specs', className: 'section' }, [head('Specifications', 'Board-level parameters.'), specsNode]),
+        h('section', { key: 'layouts', className: 'section' }, [head('Supported layouts', 'KLE export.'), layoutNode]),
+        h('section', { key: 'dl', className: 'section' }, [head('Downloads', 'Firmware, keymap, and 3D files.'), dlNode]),
+        h('section', { key: 'compat', className: 'section' }, [head('Compatibility notes', ''), compatNode]),
+        h('section', { key: 'cl', className: 'section' }, [head('Revision changelog', ''), clNode]),
+        h('section', { key: 'vendors', className: 'section' }, [head('Where to buy', ''), vNode])
+      ]);
+    }
+
+    CMS.registerPreviewTemplate('pcbs', PcbPreview);
+  })();
+  </script>
 </body>
 </html>

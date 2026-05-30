@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 import { LAYOUTS } from '../data/labels.js';
 
 const pcbEntries = await getCollection('pcbs');
-const pcbs = pcbEntries.map((e) => e.data);
+const pcbs = pcbEntries.map((e) => ({ ...e.data, slug: e.data.slug || e.id }));
 const total = pcbs.length;
 
 const counts = Object.fromEntries(LAYOUTS.map((l) => [l, pcbs.filter((p) => p.layout === l).length]));
