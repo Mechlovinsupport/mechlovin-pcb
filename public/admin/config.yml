@@ -32,8 +32,12 @@ collections:
       - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"], required: false }
       - { name: released, label: "Released", widget: string, required: false }
       - { name: featured, label: "Featured on home page", widget: boolean, default: false, required: false }
-      - { name: heroImage, label: "Hero image", widget: image, required: false }
-      - { name: layoutSvg, label: "Layout SVG", widget: file, required: false, media_folder: "/public/layouts", public_folder: "/layouts", hint: "Export from keyboard-layout-editor.com → Download SVG" }
+      - label: "Photos"
+        name: images
+        widget: list
+        required: false
+        field: { name: image, label: "Photo", widget: image }
+        hint: "Add one or more. The first is the main photo; click any photo on the page to enlarge."
       - { name: lede, label: "Description", widget: text, required: false }
 
       - label: "Switch support"
@@ -66,6 +70,8 @@ collections:
         fields:
           - { name: key, label: "Key", widget: string }
           - { name: value, label: "Value", widget: string }
+
+      - { name: layoutSvg, label: "Supported layouts (SVG)", widget: file, required: false, media_folder: "/public/layouts", public_folder: "/layouts", hint: "Export from keyboard-layout-editor.com → Download SVG" }
 
       - label: "Downloads"
         name: downloads

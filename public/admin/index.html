@@ -45,6 +45,9 @@
       var changelog = d('changelog') || [];
       var vendors = d('vendors') || [];
       var layoutSvg = d('layoutSvg') || '';
+      var heroImage = d('heroImage') || '';
+      var images = d('images') || [];
+      var gallery = [heroImage].concat(images).filter(Boolean);
 
       var swBase = (switches.indexOf('lp') >= 0 && switches.indexOf('mx') < 0) ? 'Low-profile' : 'MX';
       var swLabel = features.indexOf('hot-swap') >= 0 ? ('Hot-swap ' + swBase) : swBase;
@@ -145,15 +148,23 @@
               ]);
             }))
           ]),
-          h('div', { key: 'r' }, h('div', { className: 'head-image' },
-            h('div', { className: 'placeholder' }, h('span', {}, 'product photo'))))
+          h('div', { key: 'r' }, [
+            h('div', { key: 'img', className: 'head-image' }, gallery.length
+              ? h('img', { src: gallery[0], alt: name, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' } })
+              : h('div', { className: 'placeholder' }, h('span', {}, 'product photo'))),
+            gallery.length > 1
+              ? h('div', { key: 'thumbs', className: 'head-thumbs' }, gallery.map(function (src, i) {
+                  return h('div', { key: i, className: i === 0 ? 'active' : '', style: { backgroundImage: "url('" + src + "')", backgroundSize: 'cover', backgroundPosition: 'center' } });
+                }))
+              : null
+          ])
         ]),
-        h('section', { key: 'specs', className: 'section' }, [head('Specifications', 'Board-level parameters.'), specsNode]),
-        h('section', { key: 'layouts', className: 'section' }, [head('Supported layouts', 'KLE export.'), layoutNode]),
-        h('section', { key: 'dl', className: 'section' }, [head('Downloads', 'Firmware, keymap, and 3D files.'), dlNode]),
-        h('section', { key: 'compat', className: 'section' }, [head('Compatibility notes', ''), compatNode]),
-        h('section', { key: 'cl', className: 'section' }, [head('Revision changelog', ''), clNode]),
-        h('section', { key: 'vendors', className: 'section' }, [head('Where to buy', ''), vNode])
+        h('section', { key: 'specs', className: 'section' }, [head('Specifications'), specsNode]),
+        h('section', { key: 'layouts', className: 'section' }, [head('Supported layouts'), layoutNode]),
+        h('section', { key: 'dl', className: 'section' }, [head('Downloads'), dlNode]),
+        h('section', { key: 'compat', className: 'section' }, [head('Compatibility notes'), compatNode]),
+        h('section', { key: 'cl', className: 'section' }, [head('Revision changelog'), clNode]),
+        h('section', { key: 'vendors', className: 'section' }, [head('Where to buy'), vNode])
       ]);
     }
 

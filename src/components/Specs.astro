@@ -3,7 +3,6 @@ const { specs = [] } = Astro.props;
 ---
 <section class="section" id="specs">
   <h2>Specifications</h2>
-  <div class="section-sub">Board-level parameters.</div>
   {specs.length > 0 ? (
     <div class="specs-flat">
       {specs.map((s) => (

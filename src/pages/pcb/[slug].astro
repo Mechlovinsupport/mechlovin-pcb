@@ -21,19 +21,21 @@ export async function getStaticPaths() {
 
 const { pcb } = Astro.props;
 
+const gallery = [pcb.heroImage, ...(pcb.images ?? [])].filter(Boolean);
+
+const hasSwitchInfo = pcb.switches.length > 0 || pcb.features.length > 0;
 const switchLabel = (() => {
   const base = pcb.switches.includes('lp') && !pcb.switches.includes('mx') ? 'Low-profile' : 'MX';
   return pcb.features.includes('hot-swap') ? `Hot-swap ${base}` : base;
 })();
 
+const dash = (v) => (v && String(v).trim() ? v : '—');
 const stats = [
-  { label: 'Layout', val: pcb.layout },
-  { label: 'Switch', val: switchLabel },
-  { label: 'Revision', val: pcb.rev.replace(/^Rev\.\s*/, '') },
-  { label: 'Released', val: pcb.released },
+  { label: 'Layout', val: dash(pcb.layout) },
+  { label: 'Switch', val: hasSwitchInfo ? switchLabel : '—' },
+  { label: 'Revision', val: dash(pcb.rev.replace(/^Rev\.\s*/, '')) },
+  { label: 'Released', val: dash(pcb.released) },
 ];
-
-const thumbs = ['Top render', 'Bottom render', 'Daughterboard', 'In-case'];
 const sectionNav = [
   { id: 'specs', label: 'Specs' },
   { id: 'layouts', label: 'Layouts' },
@@ -52,18 +54,17 @@ const configuratorUrl = 'https://mechlovin.studio';
       <div class="breadcrumb">
         <a href="/pcbs">All PCBs</a>
         <span class="sep">/</span>
-        <a href={`/pcbs#${encodeURIComponent(pcb.layout)}`}>{pcb.layout}</a>
-        <span class="sep">/</span>
+        {pcb.layout && (<><a href={`/pcbs#${encodeURIComponent(pcb.layout)}`}>{pcb.layout}</a><span class="sep">/</span></>)}
         <span style="color: var(--ink-2)">{pcb.name}</span>
       </div>
       <h1>{pcb.name}</h1>
-      <div class="subtitle">{pcb.subtitle}</div>
+      {pcb.subtitle && <div class="subtitle">{pcb.subtitle}</div>}
       <div class="tag-row">
-        <span class="tag">{pcb.rev}</span>
+        {pcb.rev && <span class="tag">{pcb.rev}</span>}
         <span class="tag accent">QMK · VIA</span>
         {pcb.connection === 'wireless' && <span class="tag">Wireless</span>}
       </div>
-      <p class="lede">{pcb.lede}</p>
+      {pcb.lede && <p class="lede">{pcb.lede}</p>}
       <div class="head-stats">
         {stats.map((s) => (
           <div>
@@ -81,16 +82,22 @@ const configuratorUrl = 'https://mechlovin.studio';
       </div>
     </div>
     <div>
-      <div class="head-image">
-        {pcb.heroImage
-          ? <img src={pcb.heroImage} alt={pcb.name} style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
-          : <div class="placeholder"><span id="thumb-label">{thumbs[0]}  ·  drop product photo</span></div>}
+      <div class="head-image" id="hero-image">
+        {gallery.length
+          ? <img id="hero-img" src={gallery[0]} alt={pcb.name} />
+          : <div class="placeholder"><span>Add photos in the editor</span></div>}
       </div>
-      <div class="head-thumbs">
-        {thumbs.map((t, i) => (
-          <div class={i === 0 ? 'active' : ''} data-thumb={t} data-i={i} title={t}></div>
-        ))}
-      </div>
+      {gallery.length > 1 && (
+        <div class="head-thumbs">
+          {gallery.map((src, i) => (
+            <div
+              class={i === 0 ? 'active' : ''}
+              data-src={src}
+              style={`background-image:url('${src}');background-size:cover;background-position:center;`}
+            ></div>
+          ))}
+        </div>
+      )}
     </div>
   </header>
 
@@ -111,19 +118,66 @@ const configuratorUrl = 'https://mechlovin.studio';
   <Compatibility compatibility={pcb.compatibility} name={pcb.name} />
   <Changelog changelog={pcb.changelog} />
   <Vendors vendors={pcb.vendors} />
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
 </Base>
 
+<style>
+  .head-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .head-image.zoomable { cursor: zoom-in; }
+  .head-thumbs > div { cursor: pointer; }
+  .lightbox {
+    position: fixed; inset: 0;
+    background: oklch(0% 0 0 / 0.82);
+    display: none; align-items: center; justify-content: center;
+    padding: 40px; z-index: 200; cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 100%; max-height: 100%;
+    border-radius: var(--radius);
+    box-shadow: 0 12px 48px oklch(0% 0 0 / 0.5);
+  }
+</style>
+
 <script>
-  // Hero thumbnail switcher (placeholder labels until photos are uploaded).
+  // Gallery: clicking a thumbnail swaps the main photo; clicking the main photo
+  // opens a simple full-screen lightbox (click anywhere or press Esc to close).
+  const heroWrap = document.getElementById('hero-image');
+  const heroImg = document.getElementById('hero-img');
   const thumbEls = Array.from(document.querySelectorAll('.head-thumbs > div'));
-  const label = document.getElementById('thumb-label');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
   thumbEls.forEach((el) => {
     el.addEventListener('click', () => {
       thumbEls.forEach((t) => t.classList.remove('active'));
       el.classList.add('active');
-      if (label) label.textContent = `${el.getAttribute('data-thumb')}  ·  drop product photo`;
+      const src = el.getAttribute('data-src');
+      if (heroImg && src) heroImg.setAttribute('src', src);
     });
   });
+
+  function openLightbox(src) {
+    if (!lightbox || !lightboxImg || !src) return;
+    lightboxImg.setAttribute('src', src);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+
+  if (heroImg && heroWrap) {
+    heroWrap.classList.add('zoomable');
+    heroImg.addEventListener('click', () => openLightbox(heroImg.getAttribute('src')));
+  }
+  if (lightbox) lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
   // Sticky section-nav scroll-spy.
   const spyLinks = Array.from(document.querySelectorAll('.section-nav a[data-spy]'));

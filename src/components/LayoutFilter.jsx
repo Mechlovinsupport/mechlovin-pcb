@@ -2,11 +2,12 @@ import { useState, useMemo, useEffect } from 'react';
 import { FEATURE_LABELS, LAYOUTS, LAYOUT_ORDER } from '../data/labels.js';
 
 function PcbCard({ pcb }) {
+  const cardImg = (pcb.images && pcb.images[0]) || pcb.heroImage;
   return (
     <a className="pcb-card" href={`/pcb/${pcb.slug}`}>
       <div className="pcb-card-image">
-        {pcb.heroImage
-          ? <img src={pcb.heroImage} alt={pcb.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+        {cardImg
+          ? <img src={cardImg} alt={pcb.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
           : <div className="placeholder"><span className="mono">{pcb.name}</span></div>}
       </div>
       <div className="pcb-card-body">

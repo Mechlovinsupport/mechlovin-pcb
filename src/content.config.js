@@ -32,7 +32,8 @@ const pcbs = defineCollection({
     status: optEnum(['in-production', 'in-development', 'discontinued'], 'in-production'),
     layout: z.string().default(''),     // "60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"
     released: z.string().default(''),
-    heroImage: z.string().optional(),
+    heroImage: z.string().optional(),   // legacy single image (kept as a fallback)
+    images: arr(z.string()),            // gallery — first is the main photo
     layoutSvg: z.string().optional(),   // KLE "Download SVG" export, in /public/layouts
     lede: z.string().default(''),
     featured: z.preprocess((v) => (v == null || v === '' ? false : v), z.boolean()),

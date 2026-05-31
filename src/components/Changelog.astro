@@ -3,7 +3,6 @@ const { changelog = [] } = Astro.props;
 ---
 <section class="section" id="changelog">
   <h2>Revision changelog</h2>
-  <div class="section-sub">{changelog.length} revision{changelog.length === 1 ? '' : 's'}.</div>
   {changelog.length > 0 ? (
     <div class="changelog">
       {changelog.map((entry) => (

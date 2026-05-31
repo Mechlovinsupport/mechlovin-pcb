@@ -6,11 +6,12 @@ const { pcb, metaMode = 'rev' } = Astro.props;
 const meta = metaMode === 'connector'
   ? CONNECTOR_LABELS[pcb.connector]
   : `Rev. ${pcb.rev} · ${pcb.connection === 'wireless' ? 'Wireless · USB-C' : 'USB-C'}`;
+const cardImg = (pcb.images && pcb.images[0]) || pcb.heroImage;
 ---
 <a class="pcb-card" href={`/pcb/${pcb.slug}`}>
   <div class="pcb-card-image">
-    {pcb.heroImage
-      ? <img src={pcb.heroImage} alt={pcb.name} style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+    {cardImg
+      ? <img src={cardImg} alt={pcb.name} style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
       : <div class="placeholder"><span class="mono">{pcb.name}</span></div>}
   </div>
   <div class="pcb-card-body">
