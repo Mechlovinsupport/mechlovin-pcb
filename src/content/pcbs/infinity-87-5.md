@@ -16,5 +16,14 @@ specs:
   material: CEM-3
   solderMask: Dark Green
 layoutSvg: /layouts/infinity-87-5-exo.svg
-downloads: []
+downloads:
+  - kind: QMK Firmware
+    url: https://github.com/mechlovin/PCB/blob/master/TKL%20PCB%20-%20Infinity%20Series/IF87.5/Rev2/mechlovin_infinity875_rev2_via.bin
+    description: Flash with QMK Toolbox
+  - kind: JSON keymap
+    description: Load to use on VIA
+    url: https://github.com/mechlovin/PCB/blob/master/TKL%20PCB%20-%20Infinity%20Series/IF87.5/Rev2/infinity875-rev2.json
+  - kind: 3D Model
+    url: https://github.com/mechlovin/PCB/tree/master/TKL%20PCB%20-%20Infinity%20Series/IF87.5/Rev2/Step-file
+    description: STEP file for case design
 ---
