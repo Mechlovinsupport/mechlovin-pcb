@@ -89,7 +89,6 @@
         ? h('div', { className: 'downloads-grid' }, dlItems.map(function (dn, i) {
             var link = dn.url || dn.external || dn.file || '';
             return h('div', { className: 'download-card', key: i }, [
-              h('div', { key: 'k', className: 'download-card-kind' }, 'GitHub'),
               h('div', { key: 'f', className: 'download-card-file' }, dn.kind || 'Files'),
               dn.description ? h('p', { key: 'd', className: 'download-card-desc' }, dn.description) : null,
               h('div', { key: 'a', className: 'download-card-actions' },

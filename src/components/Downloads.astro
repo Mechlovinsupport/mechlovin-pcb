@@ -10,7 +10,6 @@ const items = downloads.filter((d) => linkOf(d));
     <div class="downloads-grid">
       {items.map((d) => (
         <div class="download-card">
-          <div class="download-card-kind">GitHub</div>
           <div class="download-card-file">{d.kind || 'Files'}</div>
           {d.description && <p class="download-card-desc">{d.description}</p>}
           <div class="download-card-actions">
