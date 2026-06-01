@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
-import { FEATURE_LABELS, CONNECTOR_LABELS, LAYOUTS, MECHLOVIN_DISCORD } from '../data/labels.js';
+import { CONNECTOR_LABELS, LAYOUTS, MECHLOVIN_DISCORD } from '../data/labels.js';
 
 function StepHead({ num, title, sub }) {
   return (
@@ -45,14 +45,11 @@ function PcbResultRow({ pcb, fit, note }) {
       <div className="prr-main">
         <div className="prr-head">
           <span className="prr-name">{pcb.name}</span>
-          <span className="pcb-card-layout">{pcb.layout}</span>
+          {pcb.layout && <span className="pcb-card-layout">{pcb.layout}</span>}
           <FitBadge fit={fit} />
         </div>
         <div className="prr-note">{note}</div>
-        <div className="prr-meta mono">
-          Rev. {pcb.rev} · {CONNECTOR_LABELS[pcb.connector]}
-          {pcb.connection === 'wireless' ? ' · Wireless' : ''}
-        </div>
+        {pcb.rev && <div className="prr-meta mono">Rev. {pcb.rev}</div>}
       </div>
       <span className="prr-arrow">→</span>
     </a>
@@ -188,12 +185,9 @@ function PcbCard({ pcb }) {
       <div className="pcb-card-body">
         <div className="pcb-card-head">
           <span className="pcb-card-name">{pcb.name}</span>
-          <span className="pcb-card-layout">{pcb.layout}</span>
+          {pcb.layout && <span className="pcb-card-layout">{pcb.layout}</span>}
         </div>
-        <div className="pcb-card-meta mono">{CONNECTOR_LABELS[pcb.connector]}</div>
-        <div className="pcb-card-chips">
-          {pcb.features.map((f) => <span className="chip" key={f}>{FEATURE_LABELS[f] ?? f}</span>)}
-        </div>
+        {pcb.rev && <div className="pcb-card-meta mono">Rev. {pcb.rev}</div>}
       </div>
     </a>
   );
@@ -201,18 +195,14 @@ function PcbCard({ pcb }) {
 
 function SpecFilter({ pcbs }) {
   const [layout, setLayout] = useState('all');
-  const [connector, setConnector] = useState('all');
 
   const filtered = useMemo(() => {
-    return pcbs.filter((p) =>
-      (layout === 'all' || p.layout === layout) &&
-      (connector === 'all' || p.connector === connector)
-    );
-  }, [layout, connector, pcbs]);
+    return pcbs.filter((p) => layout === 'all' || p.layout === layout);
+  }, [layout, pcbs]);
 
   return (
     <section className="ct-step" id="filter">
-      <StepHead num="2" title="Or match by specs" sub="No exact keyboard match? Narrow by layout and how the USB port is wired." />
+      <StepHead num="2" title="Or match by specs" sub="No exact keyboard match? Narrow by layout." />
 
       <div className="filter-bar">
         <div className="filter-bar-group">
@@ -222,14 +212,6 @@ function SpecFilter({ pcbs }) {
             {LAYOUTS.map((l) => (
               <button key={l} className={`seg-btn ${layout === l ? 'active' : ''}`} onClick={() => setLayout(l)}>{l}</button>
             ))}
-          </div>
-        </div>
-        <div className="filter-bar-group">
-          <span className="filter-bar-label">Connector</span>
-          <div className="seg">
-            <button className={`seg-btn ${connector === 'all' ? 'active' : ''}`} onClick={() => setConnector('all')}>Either</button>
-            <button className={`seg-btn ${connector === 'onboard' ? 'active' : ''}`} onClick={() => setConnector('onboard')}>Onboard USB-C</button>
-            <button className={`seg-btn ${connector === 'daughterboard' ? 'active' : ''}`} onClick={() => setConnector('daughterboard')}>Daughterboard</button>
           </div>
         </div>
       </div>
@@ -242,8 +224,8 @@ function SpecFilter({ pcbs }) {
         </div>
       ) : (
         <div className="ct-nohit">
-          <div className="ct-nohit-title">Nothing matches that combination</div>
-          <p>Try loosening the connector filter, or ask us — we can sometimes adapt a board.</p>
+          <div className="ct-nohit-title">Nothing matches that layout</div>
+          <p>Try a different layout, or ask us — we can sometimes adapt a board.</p>
         </div>
       )}
     </section>

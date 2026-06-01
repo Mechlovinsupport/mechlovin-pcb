@@ -52,13 +52,10 @@
       var gallery = [heroImage].concat(images).filter(Boolean);
 
       var switchTypes = switches.map(function (s) { return SWITCH_LABELS[s] || s; });
-      var swParts = [];
-      if (features.indexOf('hot-swap') >= 0) swParts.push('Hot-swap');
-      if (switchTypes.length) swParts.push(switchTypes.join(' · '));
-      var swLabel = swParts.join(' ');
+      var swLabel = switchTypes.join(' · ');
       var stats = [
         ['Layout', layout || '—'],
-        ['Switch', swParts.length ? swLabel : '—'],
+        ['Switch', switchTypes.length ? swLabel : '—'],
         ['Revision', rev ? rev.replace(/^Rev\.\s*/, '') : '—'],
         ['Released', released || '—']
       ];
@@ -66,7 +63,6 @@
       var tags = [];
       if (rev) tags.push(h('span', { key: 't0', className: 'tag' }, rev));
       tags.push(h('span', { key: 't1', className: 'tag accent' }, 'QMK · VIA'));
-      if (connection === 'wireless') tags.push(h('span', { key: 't2', className: 'tag' }, 'Wireless'));
 
       var specRows = [];
       SPEC_FIELDS.forEach(function (p) {

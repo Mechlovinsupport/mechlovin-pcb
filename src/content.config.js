@@ -29,7 +29,6 @@ const pcbs = defineCollection({
     slug: z.string().default(''),
     subtitle: z.string().default(''),
     rev: z.string().default(''),
-    status: optEnum(['in-production', 'in-development', 'discontinued'], 'in-production'),
     layout: z.string().default(''),     // "60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"
     released: z.string().default(''),
     heroImage: z.string().optional(),   // legacy single image (kept as a fallback)
@@ -38,12 +37,7 @@ const pcbs = defineCollection({
     lede: z.string().default(''),
     featured: z.preprocess((v) => (v == null || v === '' ? false : v), z.boolean()),
 
-    // For the compatibility tool's filters:
     switches: arr(z.enum(['mx', 'topre', 'he', 'alps'])),
-    features: arr(z.string()),          // 'hot-swap','per-key-rgb','encoder','wireless'
-    connection: optEnum(['wired', 'wireless'], 'wired'),
-    connector: optEnum(['onboard', 'daughterboard'], 'onboard'),
-    mount: arr(z.string()),
 
     // Specifications: seven fixed fields (always offered in the form, in this
     // order) plus any number of custom key/value rows. Tolerates the legacy

@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { FEATURE_LABELS, LAYOUTS, LAYOUT_ORDER } from '../data/labels.js';
+import { LAYOUTS, LAYOUT_ORDER } from '../data/labels.js';
 
 function PcbCard({ pcb }) {
   const cardImg = (pcb.images && pcb.images[0]) || pcb.heroImage;
@@ -13,12 +13,9 @@ function PcbCard({ pcb }) {
       <div className="pcb-card-body">
         <div className="pcb-card-head">
           <span className="pcb-card-name">{pcb.name}</span>
-          <span className="pcb-card-layout">{pcb.layout}</span>
+          {pcb.layout && <span className="pcb-card-layout">{pcb.layout}</span>}
         </div>
-        <div className="pcb-card-meta mono">Rev. {pcb.rev} · {pcb.connection === 'wireless' ? 'Wireless · USB-C' : 'USB-C'}</div>
-        <div className="pcb-card-chips">
-          {pcb.features.map((f) => <span className="chip" key={f}>{FEATURE_LABELS[f] ?? f}</span>)}
-        </div>
+        {pcb.rev && <div className="pcb-card-meta mono">Rev. {pcb.rev}</div>}
       </div>
     </a>
   );

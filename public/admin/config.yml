@@ -28,7 +28,6 @@ collections:
       - { name: slug, label: "URL slug", widget: string, required: false, hint: "Optional. Becomes /pcb/<slug>; defaults to the name if left blank." }
       - { name: subtitle, label: "Subtitle", widget: string, required: false }
       - { name: rev, label: "Revision", widget: string, required: false }
-      - { name: status, label: "Status", widget: select, options: ["in-production", "in-development", "discontinued"], default: "in-production", required: false }
       - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"], required: false }
       - { name: released, label: "Released", widget: string, required: false }
       - { name: featured, label: "Featured on home page", widget: boolean, default: false, required: false }
@@ -50,20 +49,6 @@ collections:
           - { label: "Topre", value: topre }
           - { label: "HE", value: he }
           - { label: "ALPS", value: alps }
-      - label: "Features"
-        name: features
-        widget: select
-        multiple: true
-        options: ["hot-swap", "per-key-rgb", "encoder", "wireless"]
-        required: false
-      - { name: connection, label: "Connection", widget: select, options: ["wired", "wireless"], default: "wired", required: false }
-      - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"], default: "onboard", required: false, hint: "How the USB-C port is wired" }
-      - label: "Mount styles"
-        name: mount
-        widget: select
-        multiple: true
-        options: ["tray", "gasket", "top-mount", "integrated"]
-        required: false
 
       - label: "Specifications"
         name: specs

@@ -25,11 +25,8 @@ const { pcb } = Astro.props;
 const gallery = [pcb.heroImage, ...(pcb.images ?? [])].filter(Boolean);
 
 const switchTypes = pcb.switches.map((s) => SWITCH_LABELS[s] || s);
-const switchParts = [];
-if (pcb.features.includes('hot-swap')) switchParts.push('Hot-swap');
-if (switchTypes.length) switchParts.push(switchTypes.join(' · '));
-const switchLabel = switchParts.join(' ');
-const hasSwitchInfo = switchParts.length > 0;
+const switchLabel = switchTypes.join(' · ');
+const hasSwitchInfo = switchTypes.length > 0;
 
 const dash = (v) => (v && String(v).trim() ? v : '—');
 const stats = [
@@ -64,7 +61,6 @@ const configuratorUrl = 'https://mechlovin.studio';
       <div class="tag-row">
         {pcb.rev && <span class="tag">{pcb.rev}</span>}
         <span class="tag accent">QMK · VIA</span>
-        {pcb.connection === 'wireless' && <span class="tag">Wireless</span>}
       </div>
       {pcb.lede && <p class="lede">{pcb.lede}</p>}
       <div class="head-stats">
