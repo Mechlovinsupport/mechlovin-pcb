@@ -4,6 +4,7 @@ slug: infinity-875-exo
 subtitle: Hybrid TKL 87 & 88 Solder PCB
 rev: "2.2"
 layout: TKL
+released: "2025"
 featured: true
 images:
   - https://i.imgur.com/Ho0RJJz.jpeg
@@ -31,6 +32,14 @@ downloads:
   - kind: 3D Model
     url: https://github.com/mechlovin/PCB/tree/master/TKL%20PCB%20-%20Infinity%20Series/IF87.5/Rev2/Step-file
     description: STEP file for case design
+compatibility:
+  - title: Case
+    body: "This PCB is designed to fit a large variety of TKL boards in both 87 & 88
+      layouts. "
+  - title: Spacebar orientation
+    body: North-facing
+  - title: Mounting
+    body: Top mount, Gasket, O-ring
 vendors:
   - name: Mechlovin' Store
     price: $50
