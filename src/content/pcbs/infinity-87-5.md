@@ -13,7 +13,7 @@ images:
 lede: ""
 switches:
   - mx
-connection: wired
+connection: null
 specs:
   firmware: QMK
   connector: Onboard USB-C or JST
