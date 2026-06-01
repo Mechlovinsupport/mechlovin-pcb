@@ -21,6 +21,8 @@
 
     var basename = function (p) { return (p || '').split('/').pop(); };
     var stockLabel = function (s) { return s === 'in' ? 'In stock' : s === 'low' ? 'Low' : 'Out'; };
+    var SWITCH_LABELS = { mx: 'MX', topre: 'Topre', he: 'HE', alps: 'ALPS' };
+    var SPEC_FIELDS = [['Firmware', 'firmware'], ['Connector', 'connector'], ['MCU', 'mcu'], ['RGB', 'rgb'], ['Thickness', 'thickness'], ['Material', 'material'], ['Solder Mask Colour', 'solderMask']];
     var muted = function (msg) { return h('p', { className: 'section-sub' }, msg); };
     var head = function (title, sub) {
       return [h('h2', { key: 'h' }, title), sub ? h('div', { key: 's', className: 'section-sub' }, sub) : null];
@@ -39,7 +41,7 @@
       var connection = d('connection') || 'wired';
       var switches = d('switches') || [];
       var features = d('features') || [];
-      var specs = d('specs') || [];
+      var specs = d('specs') || {};
       var downloads = d('downloads') || [];
       var compatibility = d('compatibility') || [];
       var changelog = d('changelog') || [];
@@ -49,11 +51,14 @@
       var images = d('images') || [];
       var gallery = [heroImage].concat(images).filter(Boolean);
 
-      var swBase = (switches.indexOf('lp') >= 0 && switches.indexOf('mx') < 0) ? 'Low-profile' : 'MX';
-      var swLabel = features.indexOf('hot-swap') >= 0 ? ('Hot-swap ' + swBase) : swBase;
+      var switchTypes = switches.map(function (s) { return SWITCH_LABELS[s] || s; });
+      var swParts = [];
+      if (features.indexOf('hot-swap') >= 0) swParts.push('Hot-swap');
+      if (switchTypes.length) swParts.push(switchTypes.join(' · '));
+      var swLabel = swParts.join(' ');
       var stats = [
         ['Layout', layout || '—'],
-        ['Switch', (switches.length || features.length) ? swLabel : '—'],
+        ['Switch', swParts.length ? swLabel : '—'],
         ['Revision', rev ? rev.replace(/^Rev\.\s*/, '') : '—'],
         ['Released', released || '—']
       ];
@@ -63,17 +68,25 @@
       tags.push(h('span', { key: 't1', className: 'tag accent' }, 'QMK · VIA'));
       if (connection === 'wireless') tags.push(h('span', { key: 't2', className: 'tag' }, 'Wireless'));
 
-      var specsNode = specs.length
-        ? h('div', { className: 'specs-flat' }, specs.map(function (s, i) {
+      var specRows = [];
+      SPEC_FIELDS.forEach(function (p) {
+        var val = specs[p[1]];
+        if (val && String(val).trim()) specRows.push({ key: p[0], value: val });
+      });
+      (specs.custom || []).forEach(function (c) {
+        if ((c.key && c.key.trim()) || (c.value && c.value.trim())) specRows.push({ key: c.key, value: c.value });
+      });
+      var specsNode = specRows.length
+        ? h('div', { className: 'specs-flat' }, specRows.map(function (s, i) {
             return h('div', { className: 'spec-row', key: i }, [
               h('div', { key: 'k', className: 'k' }, s.key), h('div', { key: 'v', className: 'v' }, s.value)
             ]);
           }))
-        : muted('Not documented yet.');
+        : null;
 
       var layoutNode = layoutSvg
         ? h('div', { className: 'kle-stage' }, h('img', { src: layoutSvg, className: 'layout-svg', alt: name }))
-        : muted('No layout diagram yet.');
+        : null;
 
       var dlNode = downloads.length
         ? h('div', { className: 'downloads-grid' }, downloads.map(function (dn, i) {
@@ -83,7 +96,7 @@
               h('p', { key: 'd', className: 'download-card-desc' }, dn.description || '')
             ]);
           }))
-        : muted('No downloads yet.');
+        : null;
 
       var compatNode = compatibility.length
         ? h('div', { className: 'compat-notes' },
@@ -93,7 +106,7 @@
                 h('div', { key: 'b', className: 'compat-note-body' }, g.body || '')
               ]);
             })))
-        : muted('No compatibility notes yet.');
+        : null;
 
       var clNode = changelog.length
         ? h('div', { className: 'changelog' }, changelog.map(function (e, i) {
@@ -115,7 +128,7 @@
               ])
             ]);
           }))
-        : muted('No changelog yet.');
+        : null;
 
       var vNode = vendors.length
         ? h('table', { className: 'vendor-table' }, [
@@ -133,7 +146,7 @@
               ]);
             }))
           ])
-        : muted('No vendors yet.');
+        : null;
 
       return h('div', {}, [
         h('header', { key: 'head', className: 'pagehead' }, [
@@ -162,7 +175,12 @@
         h('section', { key: 'specs', className: 'section' }, [head('Specifications'), specsNode]),
         h('section', { key: 'layouts', className: 'section' }, [head('Supported layouts'), layoutNode]),
         h('section', { key: 'dl', className: 'section' }, [head('Downloads'), dlNode]),
-        h('section', { key: 'compat', className: 'section' }, [head('Compatibility notes'), compatNode]),
+        h('section', { key: 'compat', className: 'section' }, [
+          head('Compatibility notes'),
+          h('div', { key: 'cta', className: 'head-cta', style: { margin: '6px 0 18px' } },
+            h('a', { className: 'btn btn-ghost btn-sm', href: '/compatibility' }, 'Check what fits your keyboard →')),
+          compatNode
+        ]),
         h('section', { key: 'cl', className: 'section' }, [head('Revision changelog'), clNode]),
         h('section', { key: 'vendors', className: 'section' }, [head('Where to buy'), vNode])
       ]);

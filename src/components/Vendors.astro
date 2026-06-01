@@ -4,7 +4,7 @@ const stockLabel = (s) => (s === 'in' ? 'In stock' : s === 'low' ? 'Low' : 'Out'
 ---
 <section class="section" id="where-to-buy">
   <h2>Where to buy</h2>
-  {vendors.length > 0 ? (
+  {vendors.length > 0 && (
     <table class="vendor-table">
       <thead>
         <tr>
@@ -29,7 +29,5 @@ const stockLabel = (s) => (s === 'in' ? 'In stock' : s === 'low' ? 'Low' : 'Out'
         ))}
       </tbody>
     </table>
-  ) : (
-    <p class="section-sub">No vendors listed yet — add stores in the CMS.</p>
   )}
 </section>

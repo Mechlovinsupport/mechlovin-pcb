@@ -9,7 +9,7 @@ const ext = (p) => {
 ---
 <section class="section" id="downloads">
   <h2>Downloads</h2>
-  {downloads.length > 0 ? (
+  {downloads.length > 0 && (
     <div class="downloads-grid">
       {downloads.map((d) => (
         <div class="download-card">
@@ -28,7 +28,5 @@ const ext = (p) => {
         </div>
       ))}
     </div>
-  ) : (
-    <p class="section-sub">No downloads yet — add firmware, VIA JSON, or 3D files in the CMS.</p>
   )}
 </section>

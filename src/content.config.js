@@ -39,16 +39,28 @@ const pcbs = defineCollection({
     featured: z.preprocess((v) => (v == null || v === '' ? false : v), z.boolean()),
 
     // For the compatibility tool's filters:
-    switches: arr(z.enum(['mx', 'lp'])),
+    switches: arr(z.enum(['mx', 'topre', 'he', 'alps'])),
     features: arr(z.string()),          // 'hot-swap','per-key-rgb','encoder','wireless'
     connection: optEnum(['wired', 'wireless'], 'wired'),
     connector: optEnum(['onboard', 'daughterboard'], 'onboard'),
     mount: arr(z.string()),
 
-    specs: arr(z.object({
-      key: z.string(),
-      value: z.string(),
-    })),
+    // Specifications: seven fixed fields (always offered in the form, in this
+    // order) plus any number of custom key/value rows. Tolerates the legacy
+    // array shape (treated as custom rows) and a missing value.
+    specs: z.preprocess(
+      (v) => (v == null ? {} : Array.isArray(v) ? { custom: v } : v),
+      z.object({
+        firmware: z.string().default(''),
+        connector: z.string().default(''),
+        mcu: z.string().default(''),
+        rgb: z.string().default(''),
+        thickness: z.string().default(''),
+        material: z.string().default(''),
+        solderMask: z.string().default(''),
+        custom: arr(z.object({ key: z.string().default(''), value: z.string().default('') })),
+      })
+    ),
 
     downloads: arr(z.object({
       kind: z.string(),                 // "QMK Firmware", "VIA JSON", "3D Model"

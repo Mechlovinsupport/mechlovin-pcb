@@ -1,6 +1,13 @@
 // Shared label maps and ordering — used by both .astro components and the
 // React islands. Ported verbatim from design-reference/pcb-data.js.
 
+export const SWITCH_LABELS = {
+  mx: 'MX',
+  topre: 'Topre',
+  he: 'HE',
+  alps: 'ALPS',
+};
+
 export const FEATURE_LABELS = {
   'hot-swap': 'Hot-swap',
   'per-key-rgb': 'Per-key RGB',

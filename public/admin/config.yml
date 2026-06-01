@@ -40,13 +40,16 @@ collections:
         hint: "Add one or more. The first is the main photo; click any photo on the page to enlarge."
       - { name: lede, label: "Description", widget: text, required: false }
 
-      - label: "Switch support"
+      - label: "Switch type"
         name: switches
         widget: select
         multiple: true
-        options: ["mx", "lp"]
-        default: ["mx"]
         required: false
+        options:
+          - { label: "MX", value: mx }
+          - { label: "Topre", value: topre }
+          - { label: "HE", value: he }
+          - { label: "ALPS", value: alps }
       - label: "Features"
         name: features
         widget: select
@@ -64,12 +67,23 @@ collections:
 
       - label: "Specifications"
         name: specs
-        widget: list
-        summary: "{{fields.key}}: {{fields.value}}"
-        required: false
+        widget: object
         fields:
-          - { name: key, label: "Key", widget: string }
-          - { name: value, label: "Value", widget: string }
+          - { name: firmware, label: "Firmware", widget: string, required: false }
+          - { name: connector, label: "Connector", widget: string, required: false, hint: "e.g. USB-C via daughterboard" }
+          - { name: mcu, label: "MCU", widget: string, required: false }
+          - { name: rgb, label: "RGB", widget: string, required: false }
+          - { name: thickness, label: "Thickness", widget: string, required: false }
+          - { name: material, label: "Material", widget: string, required: false }
+          - { name: solderMask, label: "Solder Mask Colour", widget: string, required: false }
+          - label: "Additional specs"
+            name: custom
+            widget: list
+            required: false
+            summary: "{{fields.key}}: {{fields.value}}"
+            fields:
+              - { name: key, label: "Key", widget: string }
+              - { name: value, label: "Value", widget: string }
 
       - { name: layoutSvg, label: "Supported layouts (SVG)", widget: file, required: false, media_folder: "/public/layouts", public_folder: "/layouts", hint: "Export from keyboard-layout-editor.com → Download SVG" }
 

@@ -1,15 +1,29 @@
 ---
-const { specs = [] } = Astro.props;
+const { specs = {} } = Astro.props;
+const has = (v) => v && String(v).trim();
+
+// Fixed fields first (in this order), then any custom rows.
+const fixed = [
+  ['Firmware', specs.firmware],
+  ['Connector', specs.connector],
+  ['MCU', specs.mcu],
+  ['RGB', specs.rgb],
+  ['Thickness', specs.thickness],
+  ['Material', specs.material],
+  ['Solder Mask Colour', specs.solderMask],
+];
+const rows = [
+  ...fixed.filter(([, v]) => has(v)).map(([key, value]) => ({ key, value })),
+  ...(specs.custom ?? []).filter((c) => has(c.key) || has(c.value)).map((c) => ({ key: c.key, value: c.value })),
+];
 ---
 <section class="section" id="specs">
   <h2>Specifications</h2>
-  {specs.length > 0 ? (
+  {rows.length > 0 && (
     <div class="specs-flat">
-      {specs.map((s) => (
+      {rows.map((s) => (
         <div class="spec-row"><div class="k">{s.key}</div><div class="v">{s.value}</div></div>
       ))}
     </div>
-  ) : (
-    <p class="section-sub">Not documented yet — add specifications in the CMS.</p>
   )}
 </section>

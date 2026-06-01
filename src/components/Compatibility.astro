@@ -1,15 +1,16 @@
 ---
-const { compatibility = [], name } = Astro.props;
+const { compatibility = [] } = Astro.props;
 ---
 <section class="section" id="compatibility">
   <h2>Compatibility notes</h2>
-  {compatibility.length > 0 ? (
+  <div class="head-cta" style="margin: 6px 0 18px;">
+    <a class="btn btn-ghost btn-sm" href="/compatibility">
+      Check what fits your keyboard
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  {compatibility.length > 0 && (
     <div class="compat-notes">
-      <p class="compat-intro">
-        {name} fits a range of cases and switch types. The notes below cover what's tested and what to
-        avoid. For a generic case + plate + switch checker that works across all PCBs, see the
-        <a href="/compatibility" style="color: var(--accent)"> Compatibility check</a>.
-      </p>
       <div class="compat-groups">
         {compatibility.map((g) => (
           <div class="compat-note">
@@ -19,7 +20,5 @@ const { compatibility = [], name } = Astro.props;
         ))}
       </div>
     </div>
-  ) : (
-    <p class="section-sub">No compatibility notes yet — add cases, plates, switches, and stabilizer notes in the CMS.</p>
   )}
 </section>
