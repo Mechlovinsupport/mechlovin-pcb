@@ -134,7 +134,7 @@ function Search({ keyboards, pcbBySlug }) {
         <div className="compat-search">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <input
-            placeholder="e.g. Tofu65, Bakeneko60, GMMK Pro, GH60…"
+            placeholder="Search your keyboard or case by name…"
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSelected(null); setOpen(true); }}
             onFocus={() => setOpen(true)}
