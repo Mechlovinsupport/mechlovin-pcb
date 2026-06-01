@@ -4,6 +4,11 @@ slug: infinity-875-exo
 subtitle: Hybrid TKL 87 & 88 Solder PCB
 rev: "2.2"
 layout: TKL
+featured: true
+images:
+  - https://i.imgur.com/Ho0RJJz.jpeg
+  - https://i.imgur.com/YtXlQSS.jpeg
+  - https://i.imgur.com/jGdmwBx.jpeg
 lede: ""
 switches:
   - mx
