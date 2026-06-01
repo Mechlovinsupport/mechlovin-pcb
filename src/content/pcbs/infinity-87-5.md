@@ -1,6 +1,6 @@
 ---
 name: Infinity 87.5 EXO
-slug: infinity-875
+slug: infinity-875-exo
 subtitle: Hybrid TKL 87 & 88 Solder PCB
 rev: "2.2"
 layout: TKL
