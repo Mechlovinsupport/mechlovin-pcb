@@ -62,11 +62,15 @@ const pcbs = defineCollection({
       })
     ),
 
+    // Downloads link out to GitHub (the source of truth) rather than hosting
+    // copies. Each entry is a labeled link to a folder/file in the repo.
     downloads: arr(z.object({
-      kind: z.string(),                 // "QMK Firmware", "VIA JSON", "3D Model"
-      file: z.string(),                 // path under /public/files
-      description: z.string(),
-      external: z.string().url().optional(),
+      kind: z.string().default(''),     // label, e.g. "QMK Firmware", "VIA JSON"
+      url: z.string().default(''),      // link to the PCB's folder/file on GitHub
+      description: z.string().default(''),
+      // legacy fields, tolerated but no longer offered in the form:
+      file: z.string().optional(),
+      external: z.string().optional(),
     })),
 
     compatibility: arr(z.object({

@@ -87,16 +87,15 @@ collections:
 
       - { name: layoutSvg, label: "Supported layouts (SVG)", widget: file, required: false, media_folder: "/public/layouts", public_folder: "/layouts", hint: "Export from keyboard-layout-editor.com → Download SVG" }
 
-      - label: "Downloads"
+      - label: "Downloads (GitHub links)"
         name: downloads
         widget: list
-        summary: "{{fields.kind}} — {{fields.file}}"
+        summary: "{{fields.kind}}"
         required: false
         fields:
-          - { name: kind, label: "Kind", widget: string, hint: "QMK Firmware / VIA JSON / 3D Model" }
-          - { name: file, label: "File", widget: file, media_folder: "/public/files", public_folder: "/files" }
-          - { name: description, label: "Description", widget: string }
-          - { name: external, label: "External link", widget: string, required: false }
+          - { name: kind, label: "Label", widget: string, hint: "QMK Firmware / VIA JSON / 3D Model" }
+          - { name: url, label: "GitHub link", widget: string, hint: "Link to this PCB's folder or file on GitHub" }
+          - { name: description, label: "Description", widget: string, required: false }
 
       - label: "Compatibility notes"
         name: compatibility
