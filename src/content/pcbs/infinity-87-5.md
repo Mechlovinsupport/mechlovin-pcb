@@ -26,4 +26,11 @@ downloads:
   - kind: 3D Model
     url: https://github.com/mechlovin/PCB/tree/master/TKL%20PCB%20-%20Infinity%20Series/IF87.5/Rev2/Step-file
     description: STEP file for case design
+vendors:
+  - name: Mechlovin' Store
+    price: $50
+    shipping: Worldwide
+    region: Global
+    stock: in
+    url: https://mechlovin.studio/products/mechlovin-infinity-87-5-87-88-tkl-layout-pcb
 ---
