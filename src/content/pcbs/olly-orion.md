@@ -1,4 +1,6 @@
 ---
-name: "Olly Orion"
-slug: "olly-orion"
+name: Olly Orion
+slug: olly-orion
+type: stock
+layout: TKL
 ---
