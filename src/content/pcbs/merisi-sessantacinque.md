@@ -1,4 +1,6 @@
 ---
-name: "Merisi Sessantacinque"
-slug: "merisi-sessantacinque"
+name: Merisi Sessantacinque
+slug: merisi-sessantacinque
+type: commission
+layout: 65%
 ---
