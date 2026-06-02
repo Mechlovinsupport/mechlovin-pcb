@@ -128,6 +128,8 @@ collections:
     label_singular: "Keyboard"
     folder: "src/content/keyboards"
     create: true
+    identifier_field: name
+    slug: "{{slug}}"
     summary: "{{name}} — {{vendor}} · {{layout}}"
     fields:
       - { name: name, label: "Name", widget: string }
