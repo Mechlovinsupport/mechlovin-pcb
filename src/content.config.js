@@ -119,19 +119,15 @@ const guides = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
-    lede: z.string(),
+    slug: z.string().default(''),       // optional; defaults to the filename
+    lede: z.string().default(''),
     platform: z.string().default(''),
     difficulty: z.string().default(''),
     time: z.string().default(''),
     updated: z.string().default(''),
     tag: z.string().default(''),
     order: z.number().default(99),
-    toc: arr(z.object({
-      id: z.string(),
-      num: z.string(),
-      label: z.string(),
-    })),
+    // No `toc` field — the table of contents is generated from the body's headings.
   }),
 });
 

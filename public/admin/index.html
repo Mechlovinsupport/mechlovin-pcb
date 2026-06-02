@@ -18,6 +18,7 @@
     // Load the site fonts + page stylesheet into the preview iframe.
     CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
     CMS.registerPreviewStyle('/cms-preview.css');
+    CMS.registerPreviewStyle('/cms-guide-preview.css');
 
     var basename = function (p) { return (p || '').split('/').pop(); };
     var stockLabel = function (s) { return s === 'in' ? 'In stock' : s === 'low' ? 'Low' : 'Out'; };
@@ -186,6 +187,30 @@
     }
 
     CMS.registerPreviewTemplate('pcbs', PcbPreview);
+
+    // Live preview for the Build Guides editor: renders the guide header + the
+    // formatted article (headings, lists, code, images) using the real guide CSS.
+    function GuidePreview(props) {
+      var entry = props.entry;
+      var g = function (k) { var v = entry.getIn(['data', k]); return v && v.toJS ? v.toJS() : v; };
+      var title = g('title') || 'Untitled guide';
+      var lede = g('lede') || '';
+      var metaPairs = [['Platform', g('platform')], ['Difficulty', g('difficulty')], ['Time', g('time')], ['Updated', g('updated')]].filter(function (p) { return p[1]; });
+      return h('div', { style: { padding: '20px 28px 48px', maxWidth: '820px', margin: '0 auto' } }, [
+        h('header', { key: 'head', className: 'guide-header', style: { padding: '0 0 20px' } }, [
+          h('h1', { key: 't' }, title),
+          lede ? h('p', { key: 'l', className: 'lede' }, lede) : null,
+          metaPairs.length
+            ? h('div', { key: 'm', className: 'guide-meta' }, metaPairs.map(function (p, i) {
+                return h('span', { key: i }, [h('strong', { key: 's' }, p[0]), ' · ' + p[1]]);
+              }))
+            : null
+        ]),
+        h('main', { key: 'body', className: 'guide-content guide-prose', style: { paddingTop: '20px' } }, props.widgetFor('body'))
+      ]);
+    }
+
+    CMS.registerPreviewTemplate('guides', GuidePreview);
   })();
   </script>
 </body>

@@ -5,14 +5,21 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
   return guides.map((entry) => ({
-    params: { slug: entry.data.slug },
+    params: { slug: entry.data.slug || entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
 const g = entry.data;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
+
+// Table of contents is generated from the article's H2 headings (Astro adds an
+// id to each heading automatically), so editors never maintain it by hand.
+const toc = headings
+  .filter((h) => h.depth === 2)
+  .map((h, i) => ({ id: h.slug, num: String(i + 1).padStart(2, '0'), label: h.text }));
+
 const meta = [
   ['Platform', g.platform],
   ['Difficulty', g.difficulty],
@@ -30,31 +37,39 @@ const meta = [
       <span style="color: var(--ink-2)">{g.title}</span>
     </div>
     <h1 style="margin-top: 16px">{g.title}</h1>
-    <p class="lede" set:html={g.lede} />
-    <div class="guide-meta">
-      {meta.map(([k, v]) => <span><strong>{k}</strong> · {v}</span>)}
-    </div>
+    {g.lede && <p class="lede">{g.lede}</p>}
+    {meta.length > 0 && (
+      <div class="guide-meta">
+        {meta.map(([k, v]) => <span><strong>{k}</strong> · {v}</span>)}
+      </div>
+    )}
   </header>
 
-  <div class="guide-body">
-    <aside class="guide-toc">
-      <div class="guide-toc-title">On this page</div>
-      <ol>
-        {g.toc.map((it) => (
-          <li>
-            <a href={`#${it.id}`} data-spy={it.id}>
-              <span class="num">{it.num}</span>
-              <span>{it.label}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </aside>
-    <main class="guide-content">
+  <div class={`guide-body ${toc.length === 0 ? 'no-toc' : ''}`}>
+    {toc.length > 0 && (
+      <aside class="guide-toc">
+        <div class="guide-toc-title">On this page</div>
+        <ol>
+          {toc.map((it) => (
+            <li>
+              <a href={`#${it.id}`} data-spy={it.id}>
+                <span class="num">{it.num}</span>
+                <span>{it.label}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    )}
+    <main class="guide-content guide-prose">
       <Content />
     </main>
   </div>
 </Base>
+
+<style>
+  .guide-body.no-toc { grid-template-columns: 1fr; }
+</style>
 
 <script>
   // Scroll-spy: highlight the active section in the table of contents.
@@ -69,6 +84,8 @@ const meta = [
     });
     links.forEach((a, i) => a.classList.toggle('active', i === current));
   }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  if (links.length) {
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 </script>

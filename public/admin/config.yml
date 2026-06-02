@@ -152,25 +152,16 @@ collections:
     label_singular: "Guide"
     folder: "src/content/guides"
     create: true
-    slug: "{{fields.slug}}"
+    identifier_field: title
+    slug: "{{slug}}"
     summary: "{{title}}"
     fields:
       - { name: title, label: "Title", widget: string }
-      - { name: slug, label: "URL slug", widget: string, hint: "Becomes /guides/<slug>" }
-      - { name: tag, label: "Tag", widget: string, required: false }
-      - { name: order, label: "Order", widget: number, default: 99, value_type: int }
-      - { name: platform, label: "Platform", widget: string, required: false }
-      - { name: difficulty, label: "Difficulty", widget: string, required: false }
-      - { name: time, label: "Time", widget: string, required: false }
-      - { name: updated, label: "Updated", widget: string, required: false }
-      - { name: lede, label: "Intro (HTML allowed)", widget: text }
-      - label: "Table of contents"
-        name: toc
-        widget: list
-        required: false
-        summary: "{{fields.num}} {{fields.label}}"
-        fields:
-          - { name: id, label: "Section id", widget: string, hint: "Must match the section id in the body" }
-          - { name: num, label: "Number", widget: string }
-          - { name: label, label: "Label", widget: string }
-      - { name: body, label: "Body (HTML / Markdown)", widget: markdown }
+      - { name: lede, label: "Short intro", widget: text, required: false, hint: "One or two sentences shown under the title." }
+      - { name: tag, label: "Tag", widget: string, required: false, hint: "e.g. Firmware, VIA, QMK" }
+      - { name: order, label: "Order in the guides list", widget: number, default: 99, value_type: int, required: false }
+      - { name: platform, label: "Platform", widget: string, required: false, hint: "e.g. Windows · macOS" }
+      - { name: difficulty, label: "Difficulty", widget: string, required: false, hint: "e.g. Beginner" }
+      - { name: time, label: "Time to complete", widget: string, required: false, hint: "e.g. ~5 min" }
+      - { name: updated, label: "Last updated", widget: string, required: false, hint: "e.g. Jun 2026" }
+      - { name: body, label: "Article", widget: markdown, hint: "Write the guide here. Use the toolbar for headings, bold, lists, links, code, and to insert images. Each big heading (Heading 2) automatically becomes a section in the on-page table of contents." }
