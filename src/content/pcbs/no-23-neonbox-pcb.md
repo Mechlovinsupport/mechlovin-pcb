@@ -1,4 +1,6 @@
 ---
-name: "No.23 Neonbox PCB"
-slug: "no-23-neonbox-pcb"
+name: No.23 Neonbox PCB
+slug: no-23-neonbox-pcb
+type: commission
+layout: Others
 ---
