@@ -1,4 +1,6 @@
 ---
-name: "Rogue (UTD 360C Compatible)"
-slug: "rogue-utd-360c-compatible"
+name: Rogue (UTD 360C Compatible)
+slug: rogue-utd-360c-compatible
+type: stock
+layout: TKL
 ---
