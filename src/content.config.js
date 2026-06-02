@@ -131,4 +131,22 @@ const guides = defineCollection({
   }),
 });
 
-export const collections = { pcbs, keyboards, guides };
+// Editable site/page text (singletons). Home page lives at site/home.md.
+const site = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/site' }),
+  schema: z.object({
+    eyebrow: z.string().default(''),
+    headline: z.string().default(''),
+    lede: z.string().default(''),
+    searchPlaceholder: z.string().default(''),
+    pathwaysTitle: z.string().default('Start here'),
+    pathways: arr(z.object({
+      title: z.string().default(''),
+      description: z.string().default(''),
+    })),
+    featuredTitle: z.string().default('Featured PCBs'),
+    guidesTitle: z.string().default('Build guides'),
+  }),
+});
+
+export const collections = { pcbs, keyboards, guides, site };

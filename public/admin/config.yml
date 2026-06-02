@@ -14,6 +14,31 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
+  - name: "site"
+    label: "Site pages"
+    files:
+      - name: "home"
+        label: "Home page"
+        file: "src/content/site/home.md"
+        description: "The text on the landing page."
+        fields:
+          - { name: eyebrow, label: "Eyebrow (small label above the headline)", widget: string, required: false }
+          - { name: headline, label: "Headline", widget: string, required: false }
+          - { name: lede, label: "Intro paragraph", widget: text, required: false }
+          - { name: searchPlaceholder, label: "Search box placeholder", widget: string, required: false, hint: "Use {count} for the live number of PCBs, e.g. Search {count} PCBs by name…" }
+          - { name: pathwaysTitle, label: "“Start here” section title", widget: string, required: false }
+          - label: "“Start here” cards"
+            name: pathways
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            hint: "Three cards: 1) Browse PCBs, 2) Compatibility check, 3) Build guides. Only the title and description are editable; the links stay fixed."
+            fields:
+              - { name: title, label: "Card title", widget: string }
+              - { name: description, label: "Card description", widget: text }
+          - { name: featuredTitle, label: "Featured section title", widget: string, required: false }
+          - { name: guidesTitle, label: "Guides section title", widget: string, required: false }
+
   - name: "pcbs"
     label: "PCBs"
     label_singular: "PCB"
