@@ -1,4 +1,6 @@
 ---
-name: "Aster Ergo"
-slug: "aster-ergo"
+name: Aster Ergo
+slug: aster-ergo
+type: commission
+layout: Ergo
 ---
