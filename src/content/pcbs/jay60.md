@@ -1,4 +1,6 @@
 ---
-name: "Jay60"
-slug: "jay60"
+name: Jay60
+slug: jay60
+type: stock
+layout: 60%
 ---
