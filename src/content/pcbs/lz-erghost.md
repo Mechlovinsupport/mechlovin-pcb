@@ -1,4 +1,6 @@
 ---
-name: "LZ ErGhost"
-slug: "lz-erghost"
+name: LZ ErGhost
+slug: lz-erghost
+type: commission
+layout: Ergo
 ---
