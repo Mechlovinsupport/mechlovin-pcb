@@ -20,6 +20,7 @@ specs:
   thickness: 1.6mm
   material: FR4
   solderMask: Red
+layoutSvg: /layouts/a7x-nika-tkl-1-.svg
 downloads:
   - kind: QMK Firmware
     description: Flash with QMK Toolbox
