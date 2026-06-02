@@ -1,4 +1,6 @@
 ---
-name: "Hex 6C"
-slug: "hex-6c"
+name: Hex 6C
+slug: hex-6c
+type: commission
+layout: Full-Size
 ---
