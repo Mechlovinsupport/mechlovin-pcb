@@ -1,4 +1,6 @@
 ---
-name: "Mechlovin' 9"
-slug: "mechlovin-9"
+name: Mechlovin' 9
+slug: mechlovin-9
+type: stock
+layout: 65%
 ---
