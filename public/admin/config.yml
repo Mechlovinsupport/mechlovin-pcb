@@ -134,7 +134,7 @@ collections:
       - { name: aliases, label: "Search aliases", widget: list, required: false, hint: "Lowercase nicknames people search for, e.g. tofu65" }
       - { name: vendor, label: "Vendor", widget: string }
       - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"] }
-      - { name: connector, label: "USB connector", widget: select, options: ["onboard", "daughterboard"] }
+      - { name: connector, label: "USB connector", widget: select, options: [{ label: "Onboard USB", value: onboard }, { label: "Daughterboard (JST)", value: daughterboard }] }
       - label: "Compatible PCBs"
         name: matches
         widget: list

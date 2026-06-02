@@ -23,7 +23,7 @@ export const MOUNT_LABELS = {
 };
 
 export const CONNECTOR_LABELS = {
-  onboard: 'Onboard USB-C',
+  onboard: 'Onboard USB',
   daughterboard: 'Daughterboard (JST)',
 };
 
