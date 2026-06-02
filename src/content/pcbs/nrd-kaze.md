@@ -1,4 +1,6 @@
 ---
-name: "NRD Kaze"
-slug: "nrd-kaze"
+name: NRD Kaze
+slug: nrd-kaze
+type: commission
+layout: TKL
 ---
