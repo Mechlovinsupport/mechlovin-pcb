@@ -53,6 +53,7 @@ collections:
       - { name: slug, label: "URL slug", widget: string, required: false, hint: "Optional. Becomes /pcb/<slug>; defaults to the name if left blank." }
       - { name: subtitle, label: "Subtitle", widget: string, required: false }
       - { name: rev, label: "Revision", widget: string, required: false }
+      - { name: type, label: "Type", widget: select, required: false, options: [{ label: "Stock", value: stock }, { label: "Commission", value: commission }], hint: "Stock = drop-in for a keyboard on the market · Commission = made for a specific group buy" }
       - { name: layout, label: "Layout", widget: select, options: ["60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"], required: false }
       - { name: released, label: "Released", widget: string, required: false }
       - { name: featured, label: "Featured on home page", widget: boolean, default: false, required: false }

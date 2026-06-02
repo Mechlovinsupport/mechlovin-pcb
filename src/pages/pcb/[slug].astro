@@ -24,6 +24,9 @@ const { pcb } = Astro.props;
 
 const gallery = [pcb.heroImage, ...(pcb.images ?? [])].filter(Boolean);
 
+const TYPE_LABELS = { stock: 'Stock', commission: 'Commission' };
+const typeLabel = TYPE_LABELS[pcb.type] || '';
+
 const switchTypes = pcb.switches.map((s) => SWITCH_LABELS[s] || s);
 const switchLabel = switchTypes.join(' · ');
 const hasSwitchInfo = switchTypes.length > 0;
@@ -58,10 +61,11 @@ const configuratorUrl = 'https://mechlovin.studio';
       </div>
       <h1>{pcb.name}</h1>
       {pcb.subtitle && <div class="subtitle">{pcb.subtitle}</div>}
-      <div class="tag-row">
-        {pcb.rev && <span class="tag">{pcb.rev}</span>}
-        <span class="tag accent">QMK · VIA</span>
-      </div>
+      {typeLabel && (
+        <div class="tag-row">
+          <span class="tag accent">{typeLabel}</span>
+        </div>
+      )}
       {pcb.lede && <p class="lede">{pcb.lede}</p>}
       <div class="head-stats">
         {stats.map((s) => (

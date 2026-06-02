@@ -29,6 +29,8 @@ const pcbs = defineCollection({
     slug: z.string().default(''),
     subtitle: z.string().default(''),
     rev: z.string().default(''),
+    // "stock" = drop-in for an existing keyboard; "commission" = made for a group buy.
+    type: z.preprocess((v) => (v === '' || v == null ? undefined : v), z.enum(['stock', 'commission']).optional()),
     layout: z.string().default(''),     // "60%", "65%", "75%", "TKL", "Full-Size", "Ergo", "Others"
     released: z.string().default(''),
     heroImage: z.string().optional(),   // legacy single image (kept as a fallback)

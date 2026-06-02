@@ -62,9 +62,8 @@
         ['Released', released || '—']
       ];
 
-      var tags = [];
-      if (rev) tags.push(h('span', { key: 't0', className: 'tag' }, rev));
-      tags.push(h('span', { key: 't1', className: 'tag accent' }, 'QMK · VIA'));
+      var typeLabel = ({ stock: 'Stock', commission: 'Commission' })[d('type')] || '';
+      var tags = typeLabel ? [h('span', { key: 't', className: 'tag accent' }, typeLabel)] : [];
 
       var specRows = [];
       SPEC_FIELDS.forEach(function (p) {
@@ -154,7 +153,7 @@
           h('div', { key: 'l' }, [
             h('h1', { key: 'n' }, name),
             subtitle ? h('div', { key: 'sub', className: 'subtitle' }, subtitle) : null,
-            h('div', { key: 'tags', className: 'tag-row' }, tags),
+            tags.length ? h('div', { key: 'tags', className: 'tag-row' }, tags) : null,
             lede ? h('p', { key: 'lede', className: 'lede' }, lede) : null,
             h('div', { key: 'stats', className: 'head-stats' }, stats.map(function (s, i) {
               return h('div', { key: i }, [
