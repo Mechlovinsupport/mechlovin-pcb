@@ -3,6 +3,7 @@ name: Infinity 87.5 EXO
 slug: infinity-875-exo
 subtitle: Hybrid TKL 87 & 88 Solder PCB
 rev: "2.2"
+type: stock
 layout: TKL
 released: "2025"
 featured: true
@@ -13,7 +14,6 @@ images:
 lede: ""
 switches:
   - mx
-connection: null
 specs:
   firmware: QMK
   connector: Onboard USB-C or JST
@@ -48,4 +48,5 @@ vendors:
     region: Global
     stock: in
     url: https://mechlovin.studio/products/mechlovin-infinity-87-5-87-88-tkl-layout-pcb
+connection: null
 ---
