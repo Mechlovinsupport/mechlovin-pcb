@@ -11,12 +11,11 @@ images:
   - https://i.imgur.com/Ho0RJJz.jpeg
   - https://i.imgur.com/YtXlQSS.jpeg
   - https://i.imgur.com/jGdmwBx.jpeg
-lede: ""
 switches:
   - mx
 specs:
   firmware: QMK
-  connector: Onboard USB-C or JST
+  connector: Onboard USB-C, Mini-USB or JST
   mcu: ARM STM32
   rgb: Underglow
   thickness: 1.6mm
@@ -35,8 +34,7 @@ downloads:
     description: STEP file for case design
 compatibility:
   - title: Case
-    body: "This PCB is designed to fit a large variety of TKL boards in both 87 & 88
-      layouts. "
+    body: "This PCB is designed to fit a large variety of TKL boards in both 87 & 88 layouts. "
   - title: Spacebar orientation
     body: North-facing
   - title: Mounting
