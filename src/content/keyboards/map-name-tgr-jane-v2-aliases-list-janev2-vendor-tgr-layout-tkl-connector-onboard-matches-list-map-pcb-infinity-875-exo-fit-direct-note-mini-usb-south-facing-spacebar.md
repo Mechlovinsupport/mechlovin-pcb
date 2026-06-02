@@ -9,4 +9,7 @@ matches:
   - pcb: infinity-875-exo
     fit: direct
     note: Mini-USB, South-facing spacebar
+  - pcb: infinity-875
+    fit: direct
+    note: Mini-USB. South-facing spacebar
 ---
