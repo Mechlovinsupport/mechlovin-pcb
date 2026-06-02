@@ -1,4 +1,5 @@
 ---
-name: "A7X Nika"
-slug: "a7x-nika"
+name: A7X Nika
+slug: a7x-nika
+layout: TKL
 ---
