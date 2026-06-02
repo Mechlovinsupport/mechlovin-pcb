@@ -1,4 +1,6 @@
 ---
-name: "Hex 4B Rev. 2"
-slug: "hex-4b-rev-2"
+name: Hex 4B Rev. 2
+slug: hex-4b-rev-2
+type: commission
+layout: 75%
 ---
