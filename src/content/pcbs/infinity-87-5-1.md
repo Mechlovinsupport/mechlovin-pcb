@@ -17,7 +17,6 @@ specs:
   thickness: 1.6mm
   material: FR4
   solderMask: White
-layoutSvg: /layouts/infinity-87-5-exo.svg
 downloads:
   - kind: QMK Firmware
     url: https://github.com/mechlovin/PCB/blob/master/TKL%20PCB%20-%20Infinity%20Series/IF87.5/Rev2/mechlovin_infinity875_rev2_via.bin
@@ -44,4 +43,7 @@ vendors:
     url: https://mechlovin.studio/products/mechlovin-infinity-87-5-87-88-tkl-layout-pcb
 connection: null
 type: stock
+layouts:
+  - svg: /layouts/infinity-87-5-exo.svg
+    caption: ""
 ---

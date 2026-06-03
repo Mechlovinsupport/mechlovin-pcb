@@ -1,11 +1,22 @@
 ---
-const { layoutSvg, name } = Astro.props;
+const { layouts = [], layoutSvg, name } = Astro.props;
+// Use the list when present; fall back to the legacy single SVG.
+const items = (layouts && layouts.length)
+  ? layouts.filter((l) => l && l.svg)
+  : (layoutSvg ? [{ svg: layoutSvg, caption: '' }] : []);
 ---
 <section class="section" id="layouts">
   <h2>Supported layouts</h2>
-  {layoutSvg && (
-    <div class="kle-stage">
-      <img src={layoutSvg} alt={`${name} supported layouts`} class="layout-svg" />
+  {items.length > 0 && (
+    <div class="layouts-stack">
+      {items.map((l) => (
+        <figure class="kle-figure">
+          <div class="kle-stage">
+            <img src={l.svg} alt={l.caption || `${name} supported layout`} class="layout-svg" />
+          </div>
+          {l.caption && <figcaption class="kle-caption">{l.caption}</figcaption>}
+        </figure>
+      ))}
     </div>
   )}
 </section>

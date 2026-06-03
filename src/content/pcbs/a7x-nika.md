@@ -23,7 +23,6 @@ specs:
   custom:
     - key: DB connector
       value: JST-SH
-layoutSvg: /layouts/a7x-nika-tkl-1-.svg
 downloads:
   - kind: QMK Firmware
     description: Flash with QMK Toolbox
@@ -31,4 +30,7 @@ downloads:
 compatibility:
   - title: Case
     body: "This PCB uses non-standard switch spacing and only fits the A7X Nika. "
+layouts:
+  - svg: /layouts/a7x-nika-tkl-1-.svg
+    caption: ""
 ---

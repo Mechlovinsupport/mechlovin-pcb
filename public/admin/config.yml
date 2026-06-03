@@ -96,7 +96,15 @@ collections:
               - { name: key, label: "Key", widget: string }
               - { name: value, label: "Value", widget: string }
 
-      - { name: layoutSvg, label: "Supported layouts (SVG)", widget: file, required: false, media_folder: "/public/layouts", public_folder: "/layouts", hint: "Export from keyboard-layout-editor.com → Download SVG" }
+      - label: "Supported layouts"
+        name: layouts
+        widget: list
+        required: false
+        summary: "{{fields.caption}}"
+        hint: "Add one diagram per layout version. Export each from keyboard-layout-editor.com → Download SVG."
+        fields:
+          - { name: svg, label: "Layout SVG", widget: file, media_folder: "/public/layouts", public_folder: "/layouts" }
+          - { name: caption, label: "Caption (shown beneath the diagram)", widget: string, required: false, hint: "e.g. “Rev. 2 — split backspace”" }
 
       - label: "Downloads (GitHub links)"
         name: downloads

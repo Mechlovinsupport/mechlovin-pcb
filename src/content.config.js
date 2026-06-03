@@ -35,7 +35,11 @@ const pcbs = defineCollection({
     released: z.string().default(''),
     heroImage: z.string().optional(),   // legacy single image (kept as a fallback)
     images: arr(z.string()),            // gallery — first is the main photo
-    layoutSvg: z.string().optional(),   // KLE "Download SVG" export, in /public/layouts
+    layoutSvg: z.string().optional(),   // legacy single layout SVG (kept as a fallback)
+    layouts: arr(z.object({             // one diagram per layout version, each captioned
+      svg: z.string().default(''),
+      caption: z.string().default(''),
+    })),
     lede: z.string().default(''),
     featured: z.preprocess((v) => (v == null || v === '' ? false : v), z.boolean()),
 

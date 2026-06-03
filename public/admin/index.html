@@ -81,8 +81,17 @@
           }))
         : null;
 
-      var layoutNode = layoutSvg
-        ? h('div', { className: 'kle-stage' }, h('img', { src: layoutSvg, className: 'layout-svg', alt: name }))
+      var layoutsList = d('layouts') || [];
+      var layoutItems = layoutsList.length
+        ? layoutsList.filter(function (l) { return l && l.svg; })
+        : (layoutSvg ? [{ svg: layoutSvg, caption: '' }] : []);
+      var layoutNode = layoutItems.length
+        ? h('div', { className: 'layouts-stack' }, layoutItems.map(function (l, i) {
+            return h('figure', { key: i, className: 'kle-figure' }, [
+              h('div', { key: 's', className: 'kle-stage' }, h('img', { src: l.svg, className: 'layout-svg', alt: l.caption || name })),
+              l.caption ? h('figcaption', { key: 'c', className: 'kle-caption' }, l.caption) : null
+            ]);
+          }))
         : null;
 
       var dlItems = downloads.filter(function (dn) { return dn.url || dn.external || dn.file; });
