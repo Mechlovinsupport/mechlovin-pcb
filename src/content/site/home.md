@@ -1,9 +1,7 @@
 ---
 eyebrow: Mechlovin' Studio · resource hub
 headline: A database for every Mechlovin products
-lede: One place for everything you need to build and maintain your keyboard —
-  full specifications, supported layouts, firmware and VIA downloads,
-  compatibility notes, and step-by-step guides.
+lede: ""
 searchPlaceholder: Search {count} PCBs by name or layout…
 pathwaysTitle: Start here
 pathways:
