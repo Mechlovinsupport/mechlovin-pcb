@@ -20,6 +20,9 @@ specs:
   thickness: 1.6mm
   material: FR4
   solderMask: Red
+  custom:
+    - key: DB connector
+      value: JST-SH
 layoutSvg: /layouts/a7x-nika-tkl-1-.svg
 downloads:
   - kind: QMK Firmware
