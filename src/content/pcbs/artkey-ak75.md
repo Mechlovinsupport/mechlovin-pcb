@@ -23,4 +23,5 @@ specs:
   custom:
     - key: DB Connector
       value: JST-SH
+layouts: []
 ---
