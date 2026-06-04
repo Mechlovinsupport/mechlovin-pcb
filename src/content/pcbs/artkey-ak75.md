@@ -1,7 +1,7 @@
 ---
 name: Artkey AK75
 slug: artkey-ak75
-subtitle: Custom PCB for the Artkey AK75.
+subtitle: Commissioned PCB for the Artkey AK75.
 rev: ZED75 RGB Rev. 1
 type: commission
 layout: 75%
