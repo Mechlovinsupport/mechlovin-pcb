@@ -23,5 +23,15 @@ specs:
   custom:
     - key: DB Connector
       value: JST-SH
-layouts: []
+layouts:
+  - svg: /layouts/artkey-ak75-solder.svg
+    caption: Solder Version
+  - svg: /layouts/artkey-ak75-hotswap.svg
+    caption: Hotswap Version
+downloads:
+  - url: https://github.com/mechlovin/PCB/tree/master/Artkey/AK01
+    kind: QMK Firmware & VIA JSON
+compatibility:
+  - title: Case fitment
+    body: "This PCB design fits the Artkey AK75 keyboard specifically. "
 ---
