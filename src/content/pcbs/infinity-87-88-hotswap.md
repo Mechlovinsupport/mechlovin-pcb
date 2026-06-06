@@ -30,6 +30,8 @@ layouts:
 downloads:
   - kind: QMK Firmware & VIA JSON
     url: https://github.com/mechlovin/PCB/tree/master/TKL%20PCB%20-%20Infinity%20Series/Infinity87/Firmware/Rev3/Standard
+  - url: https://github.com/mechlovin/PCB/tree/master/TKL%20PCB%20-%20Infinity%20Series/Infinity87/Step-files
+    kind: STEP model
 compatibility:
   - title: Case fitment
     body: >+
@@ -51,6 +53,7 @@ changelog:
         text: Revised PCB outline for improved fitment
       - kind: add
         text: JST-SUR low-profile connector footprint
+    summary: Minor fixes
 vendors:
   - name: Mechlovin'
     region: Global
