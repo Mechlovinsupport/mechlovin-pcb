@@ -28,4 +28,11 @@ downloads:
 compatibility:
   - title: Case fitment
     body: "This PCB design fits the Duck TCV3 keyboard specifically. "
+vendors:
+  - name: Mechlovin'
+    region: Global
+    stock: in
+    url: https://mechlovin.studio/products/mechlovin-olly-duck-compatible-pcb
+    price: $60
+    shipping: Worldwide
 ---
