@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
-import { CONNECTOR_LABELS, LAYOUTS, MECHLOVIN_DISCORD } from '../data/labels.js';
+import { CONNECTOR_LABELS, LAYOUTS, MECHLOVIN_DISCORD, TYPE_LABELS } from '../data/labels.js';
 
 function StepHead({ num, title, sub }) {
   return (
@@ -175,6 +175,7 @@ function Search({ keyboards, pcbBySlug }) {
 
 function PcbCard({ pcb }) {
   const cardImg = (pcb.images && pcb.images[0]) || pcb.heroImage;
+  const typeLabel = TYPE_LABELS[pcb.type];
   return (
     <a className="pcb-card" href={`/pcb/${pcb.slug}`}>
       <div className="pcb-card-image">
@@ -185,7 +186,10 @@ function PcbCard({ pcb }) {
       <div className="pcb-card-body">
         <div className="pcb-card-head">
           <span className="pcb-card-name">{pcb.name}</span>
-          {pcb.layout && <span className="pcb-card-layout">{pcb.layout}</span>}
+          <span className="pcb-card-tags">
+            {typeLabel && <span className={`pcb-card-type type-${pcb.type}`}>{typeLabel}</span>}
+            {pcb.layout && <span className="pcb-card-layout">{pcb.layout}</span>}
+          </span>
         </div>
         {pcb.rev && <div className="pcb-card-meta mono">Rev. {pcb.rev}</div>}
       </div>

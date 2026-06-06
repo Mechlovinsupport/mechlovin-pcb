@@ -1,8 +1,9 @@
 import { useState, useMemo, useEffect } from 'react';
-import { LAYOUTS, LAYOUT_ORDER } from '../data/labels.js';
+import { LAYOUTS, LAYOUT_ORDER, TYPE_LABELS } from '../data/labels.js';
 
 function PcbCard({ pcb }) {
   const cardImg = (pcb.images && pcb.images[0]) || pcb.heroImage;
+  const typeLabel = TYPE_LABELS[pcb.type];
   return (
     <a className="pcb-card" href={`/pcb/${pcb.slug}`}>
       <div className="pcb-card-image">
@@ -13,7 +14,10 @@ function PcbCard({ pcb }) {
       <div className="pcb-card-body">
         <div className="pcb-card-head">
           <span className="pcb-card-name">{pcb.name}</span>
-          {pcb.layout && <span className="pcb-card-layout">{pcb.layout}</span>}
+          <span className="pcb-card-tags">
+            {typeLabel && <span className={`pcb-card-type type-${pcb.type}`}>{typeLabel}</span>}
+            {pcb.layout && <span className="pcb-card-layout">{pcb.layout}</span>}
+          </span>
         </div>
         {pcb.rev && <div className="pcb-card-meta mono">Rev. {pcb.rev}</div>}
       </div>

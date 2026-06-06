@@ -1,6 +1,11 @@
 // Shared label maps and ordering — used by both .astro components and the
 // React islands. Ported verbatim from design-reference/pcb-data.js.
 
+export const TYPE_LABELS = {
+  stock: 'Stock',
+  commission: 'Commission',
+};
+
 export const SWITCH_LABELS = {
   mx: 'MX',
   topre: 'Topre',

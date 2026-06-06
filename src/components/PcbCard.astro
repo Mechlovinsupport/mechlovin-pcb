@@ -1,7 +1,9 @@
 ---
+import { TYPE_LABELS } from '../data/labels.js';
 const { pcb } = Astro.props;
 const meta = pcb.rev ? `Rev. ${pcb.rev}` : '';
 const cardImg = (pcb.images && pcb.images[0]) || pcb.heroImage;
+const typeLabel = TYPE_LABELS[pcb.type];
 ---
 <a class="pcb-card" href={`/pcb/${pcb.slug}`}>
   <div class="pcb-card-image">
@@ -12,7 +14,10 @@ const cardImg = (pcb.images && pcb.images[0]) || pcb.heroImage;
   <div class="pcb-card-body">
     <div class="pcb-card-head">
       <span class="pcb-card-name">{pcb.name}</span>
-      {pcb.layout && <span class="pcb-card-layout">{pcb.layout}</span>}
+      <span class="pcb-card-tags">
+        {typeLabel && <span class={`pcb-card-type type-${pcb.type}`}>{typeLabel}</span>}
+        {pcb.layout && <span class="pcb-card-layout">{pcb.layout}</span>}
+      </span>
     </div>
     {meta && <div class="pcb-card-meta mono">{meta}</div>}
   </div>
