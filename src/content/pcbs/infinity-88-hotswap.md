@@ -30,6 +30,8 @@ layouts:
 downloads:
   - kind: QMK Firmware & VIA JSON
     url: https://github.com/mechlovin/PCB/tree/master/TKL%20PCB%20-%20Infinity%20Series/Infinity88/Rev3
+  - kind: STEP model
+    url: https://github.com/mechlovin/PCB/tree/master/TKL%20PCB%20-%20Infinity%20Series/Infinity88/Step-files
 compatibility:
   - title: Case fitment
     body: >+
@@ -48,6 +50,8 @@ changelog:
     items:
       - kind: chg
         text: "Revised PCB outline for improved fitment. "
+    date: "2024"
+    summary: Minor fixes
 vendors:
   - name: Mechlovin'
     region: Global
