@@ -21,6 +21,12 @@ specs:
   thickness: 1.6mm
   material: CEM-3
   solderMask: Dark Green
+  custom:
+    - key: DB Standard
+      value: JST-SH
+layouts:
+  - svg: /layouts/infinity-87-5-exo.svg
+    caption: ""
 downloads:
   - kind: QMK Firmware
     url: https://github.com/mechlovin/PCB/blob/master/TKL%20PCB%20-%20Infinity%20Series/IF87.5/Rev2/mechlovin_infinity875_rev2_via.bin
@@ -33,11 +39,8 @@ downloads:
     description: STEP file for case design
 compatibility:
   - title: Case
-    body: "This PCB is designed to fit a large variety of TKL boards in both 87 & 88 layouts. "
-  - title: Spacebar orientation
-    body: North-facing
-  - title: Mounting
-    body: Top mount, Gasket, O-ring
+    body: "This PCB is designed to fit a large variety of TKL boards in both 87 & 88
+      layouts. "
 vendors:
   - name: Mechlovin' Store
     price: $50
@@ -46,7 +49,4 @@ vendors:
     stock: in
     url: https://mechlovin.studio/products/mechlovin-infinity-87-5-87-88-tkl-layout-pcb
 connection: null
-layouts:
-  - svg: /layouts/infinity-87-5-exo.svg
-    caption: ""
 ---
