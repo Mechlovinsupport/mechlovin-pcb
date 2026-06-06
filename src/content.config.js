@@ -73,29 +73,31 @@ const pcbs = defineCollection({
       external: z.string().optional(),
     })),
 
+    // All nested fields below are tolerant of blanks so a half-filled row in the
+    // CMS never breaks the build.
     compatibility: arr(z.object({
-      title: z.string(),                // "Cases", "Plates", "Switches", "Stabilizers"
-      body: z.string(),
+      title: z.string().default(''),    // "Cases", "Plates", "Switches", "Stabilizers"
+      body: z.string().default(''),
     })),
 
     changelog: arr(z.object({
-      rev: z.string(),
-      date: z.string(),
-      current: z.boolean().default(false),
-      summary: z.string(),
+      rev: z.string().default(''),
+      date: z.string().default(''),
+      current: z.preprocess((v) => (v == null || v === '' ? false : v), z.boolean()),
+      summary: z.string().default(''),
       items: arr(z.object({
-        kind: z.enum(['add', 'fix', 'chg', 'rm']),
-        text: z.string(),
+        kind: optEnum(['add', 'fix', 'chg', 'rm'], 'add'),
+        text: z.string().default(''),
       })),
     })),
 
     vendors: arr(z.object({
-      name: z.string(),
-      region: z.string(),
-      stock: z.enum(['in', 'low', 'out']),
-      price: z.string(),
-      shipping: z.string(),
-      url: z.string().url(),
+      name: z.string().default(''),
+      region: z.string().default(''),
+      stock: optEnum(['in', 'low', 'out'], 'in'),
+      price: z.string().default(''),
+      shipping: z.string().default(''),
+      url: z.string().default(''),
     })),
   }),
 });

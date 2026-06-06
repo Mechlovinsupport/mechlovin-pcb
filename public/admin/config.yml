@@ -61,7 +61,7 @@ collections:
         name: images
         widget: list
         required: false
-        field: { name: image, label: "Photo", widget: image }
+        field: { name: image, label: "Photo", widget: image, media_folder: "/public/images", public_folder: "/images" }
         hint: "Add one or more. The first is the main photo; click any photo on the page to enlarge."
       - { name: lede, label: "Description", widget: text, required: false }
 
