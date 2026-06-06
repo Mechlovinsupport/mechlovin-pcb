@@ -24,7 +24,7 @@ specs:
     - key: DB Standard
       value: JST-SH or JST-SUR
 layouts:
-  - svg: /layouts/infinity-87-5-exo.svg
+  - svg: /layouts/infinity-87-5-fr4.svg
     caption: ""
 downloads:
   - kind: QMK Firmware
