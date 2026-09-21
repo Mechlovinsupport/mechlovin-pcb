@@ -1,5 +1,5 @@
 ---
-name: Zed60 - Stock
+name: Zed60
 slug: zed60
 subtitle: Universal 60% PCB
 rev: "1.2"
