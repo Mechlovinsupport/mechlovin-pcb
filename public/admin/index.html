@@ -281,6 +281,32 @@
 
     CMS.registerPreviewTemplate('site', HomePreview);
     CMS.registerPreviewTemplate('home', HomePreview);
+
+    // Live preview for the Footer editor.
+    function FooterPreview(props) {
+      var entry = props.entry;
+      var f = function (k) { var v = entry.getIn(['data', k]); return v && v.toJS ? v.toJS() : v; };
+      var tagline = f('tagline') || 'Custom mechanical keyboard PCBs, designed in Hanoi and shipped worldwide since 2019.';
+      var linksTitle = f('linksTitle') || 'Mechlovin';
+      var links = f('links');
+      links = (links && links.length) ? links : [{ label: 'Main store' }, { label: 'GitHub' }, { label: 'Discord' }];
+      var copyright = f('copyright') || '© 2026 Mechlovin Studio · Designed in Hanoi';
+      var bottomRight = f('bottomRight') || 'v3.0 · support.mechlovin.studio';
+      return h('div', {}, [
+        h('footer', { key: 'f' }, [
+          h('div', { key: 'b', className: 'col-brand' }, [
+            h('div', { key: 'w', className: 'wordmark' }, [h('span', { key: 1 }, 'mechlovin'), h('span', { key: 2, className: 'dot' }), h('span', { key: 3, className: 'wordmark-sub' }, 'studio')]),
+            h('p', { key: 'p' }, tagline)
+          ]),
+          h('div', { key: 'r' }, [h('h5', { key: 'h' }, 'Resources'), h('ul', { key: 'u' }, [h('li', { key: 1 }, h('a', {}, 'All PCBs')), h('li', { key: 2 }, h('a', {}, 'Compatibility check')), h('li', { key: 3 }, h('a', {}, 'Build guides'))])]),
+          h('div', { key: 'l' }, [h('h5', { key: 'h' }, 'Layouts'), h('ul', { key: 'u' }, HOME_LAYOUTS.map(function (l, i) { return h('li', { key: i }, h('a', {}, l)); }))]),
+          h('div', { key: 'm' }, [h('h5', { key: 'h' }, linksTitle), h('ul', { key: 'u' }, links.map(function (l, i) { return h('li', { key: i }, h('a', {}, (l.label || '') + ' ↗')); }))])
+        ]),
+        h('div', { key: 'bot', className: 'footer-bottom' }, [h('span', { key: 1 }, copyright), h('span', { key: 2 }, bottomRight)])
+      ]);
+    }
+
+    CMS.registerPreviewTemplate('footer', FooterPreview);
   })();
   </script>
 </body>

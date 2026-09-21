@@ -1,6 +1,19 @@
 ---
+import { getEntry } from 'astro:content';
 import { LAYOUTS } from '../data/labels.js';
 const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+
+// Editable footer text (CMS → Site pages → Footer), with fallbacks.
+const f = (await getEntry('site', 'footer'))?.data ?? {};
+const tagline = f.tagline || 'Custom mechanical keyboard PCBs, designed in Hanoi and shipped worldwide since 2019.';
+const linksTitle = f.linksTitle || 'Mechlovin';
+const links = (f.links && f.links.length) ? f.links.filter((l) => l.label || l.url) : [
+  { label: 'Main store', url: 'https://mechlovin.studio' },
+  { label: 'GitHub', url: 'https://github.com/mechlovin' },
+  { label: 'Discord', url: 'https://discord.gg/mechlovin' },
+];
+const copyright = f.copyright || '© 2026 Mechlovin Studio · Designed in Hanoi';
+const bottomRight = f.bottomRight || 'v3.0 · support.mechlovin.studio';
 ---
 <footer>
   <div class="col-brand">
@@ -9,7 +22,7 @@ const guideHref = '/guides/flashing-firmware-qmk-toolbox';
       <span class="dot"></span>
       <span class="wordmark-sub">studio</span>
     </div>
-    <p>Custom mechanical keyboard PCBs, designed in Hanoi and shipped worldwide since 2019.</p>
+    <p>{tagline}</p>
   </div>
   <div>
     <h5>Resources</h5>
@@ -26,15 +39,15 @@ const guideHref = '/guides/flashing-firmware-qmk-toolbox';
     </ul>
   </div>
   <div>
-    <h5>Mechlovin</h5>
+    <h5>{linksTitle}</h5>
     <ul>
-      <li><a href="https://mechlovin.studio" target="_blank" rel="noopener">Main store ↗</a></li>
-      <li><a href="https://github.com/mechlovin" target="_blank" rel="noopener">GitHub ↗</a></li>
-      <li><a href="https://discord.gg/mechlovin" target="_blank" rel="noopener">Discord ↗</a></li>
+      {links.map((l) => (
+        <li><a href={l.url} target="_blank" rel="noopener">{l.label} ↗</a></li>
+      ))}
     </ul>
   </div>
 </footer>
 <div class="footer-bottom">
-  <span>© 2026 Mechlovin Studio · Designed in Hanoi</span>
-  <span>v3.0 · support.mechlovin.studio</span>
+  <span>{copyright}</span>
+  <span>{bottomRight}</span>
 </div>

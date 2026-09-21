@@ -154,6 +154,16 @@ const site = defineCollection({
     })),
     featuredTitle: z.string().default('Featured PCBs'),
     guidesTitle: z.string().default('Build guides'),
+    // Footer (site/footer.md) — all optional so home.md and footer.md can share
+    // this collection's schema.
+    tagline: z.string().default(''),
+    linksTitle: z.string().default('Mechlovin'),
+    links: arr(z.object({
+      label: z.string().default(''),
+      url: z.string().default(''),
+    })),
+    copyright: z.string().default(''),
+    bottomRight: z.string().default(''),
   }),
 });
 

@@ -39,6 +39,25 @@ collections:
           - { name: featuredTitle, label: "Featured section title", widget: string, required: false }
           - { name: guidesTitle, label: "Guides section title", widget: string, required: false }
 
+      - name: "footer"
+        label: "Footer"
+        file: "src/content/site/footer.md"
+        description: "The footer shown on every page."
+        fields:
+          - { name: tagline, label: "Brand tagline", widget: text, required: false, hint: "The short paragraph under the wordmark." }
+          - { name: linksTitle, label: "Links column heading", widget: string, required: false, hint: "e.g. Mechlovin" }
+          - label: "Links column"
+            name: links
+            widget: list
+            required: false
+            summary: "{{fields.label}}"
+            hint: "External links (store, GitHub, Discord…). An ↗ arrow is added automatically."
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: url, label: "URL", widget: string }
+          - { name: copyright, label: "Bottom-left text (copyright)", widget: string, required: false }
+          - { name: bottomRight, label: "Bottom-right text", widget: string, required: false }
+
   - name: "pcbs"
     label: "PCBs"
     label_singular: "PCB"
