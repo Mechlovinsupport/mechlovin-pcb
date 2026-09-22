@@ -1,5 +1,5 @@
 ---
-name: Zed65
+name: Zed65 Solder
 slug: zed65
 type: stock
 layout: 65%
