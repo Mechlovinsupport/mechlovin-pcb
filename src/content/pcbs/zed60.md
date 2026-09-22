@@ -1,5 +1,5 @@
 ---
-name: Zed60 - Stock
+name: Zed60 Solder  - Stock
 slug: zed60
 subtitle: Universal 60% PCB
 rev: "1.2"
