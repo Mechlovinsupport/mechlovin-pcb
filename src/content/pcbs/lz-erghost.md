@@ -8,8 +8,8 @@ layout: Ergo
 released: "2022"
 featured: false
 images:
-  - https://i.imgur.com/MnuWlBb.jpeg
-  - https://i.imgur.com/6f7eCs0.jpeg
+  - /images/MnuWlBb.webp
+  - /images/6f7eCs0.webp
 switches:
   - mx
 specs:

@@ -8,8 +8,8 @@ layout: Full-Size
 released: "2023"
 featured: false
 images:
-  - https://i.imgur.com/n2dZ8RR.png
-  - https://i.imgur.com/cwOBH0E.jpeg
+  - /images/n2dZ8RR.webp
+  - /images/cwOBH0E.webp
 switches:
   - mx
 specs:

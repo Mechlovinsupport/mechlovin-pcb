@@ -8,9 +8,9 @@ layout: 65%
 released: "2025"
 featured: false
 images:
-  - https://i.imgur.com/nF8fEC5.png
-  - https://i.imgur.com/NsQX1h5.png
-  - https://i.imgur.com/udaAuqq.jpeg
+  - /images/nF8fEC5.webp
+  - /images/NsQX1h5.webp
+  - /images/udaAuqq.webp
 switches:
   - mx
 specs:

@@ -8,9 +8,9 @@ layout: TKL
 released: "2025"
 featured: true
 images:
-  - https://i.imgur.com/Ho0RJJz.jpeg
-  - https://i.imgur.com/YtXlQSS.jpeg
-  - https://i.imgur.com/jGdmwBx.jpeg
+  - /images/Ho0RJJz.webp
+  - /images/YtXlQSS.webp
+  - /images/jGdmwBx.webp
 switches:
   - mx
 specs:

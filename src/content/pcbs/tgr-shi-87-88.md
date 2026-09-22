@@ -8,8 +8,8 @@ layout: TKL
 released: "2024"
 featured: false
 images:
-  - https://i.imgur.com/IzvyYQn.png
-  - https://i.imgur.com/dld7k3u.png
+  - /images/IzvyYQn.webp
+  - /images/dld7k3u.webp
 switches:
   - mx
 specs:

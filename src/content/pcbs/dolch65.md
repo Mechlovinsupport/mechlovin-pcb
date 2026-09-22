@@ -8,8 +8,8 @@ layout: 65%
 released: "2023"
 featured: false
 images:
-  - https://i.imgur.com/69TQ9BH.jpeg
-  - https://i.imgur.com/mmjjF5T.jpeg
+  - /images/69TQ9BH.webp
+  - /images/mmjjF5T.webp
 switches:
   - mx
 specs:

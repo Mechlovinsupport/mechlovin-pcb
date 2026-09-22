@@ -7,9 +7,9 @@ layout: TKL
 released: "2023"
 featured: false
 images:
-  - https://i.imgur.com/cMEccFm.jpeg
-  - https://i.imgur.com/XkEADme.jpeg
-  - https://i.imgur.com/XPaH3vV.jpeg
+  - /images/cMEccFm.webp
+  - /images/XkEADme.webp
+  - /images/XPaH3vV.webp
 switches:
   - mx
 specs:

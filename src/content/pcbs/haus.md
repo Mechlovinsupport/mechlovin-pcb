@@ -8,8 +8,8 @@ layout: 65%
 released: "2021"
 featured: false
 images:
-  - https://i.imgur.com/DjloffT.jpeg
-  - https://i.imgur.com/1FpKAce.jpeg
+  - /images/DjloffT.webp
+  - /images/1FpKAce.webp
 switches:
   - mx
 specs:

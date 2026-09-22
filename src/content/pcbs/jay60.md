@@ -7,8 +7,8 @@ layout: 60%
 released: 2021 - Discontinued
 featured: false
 images:
-  - https://i.imgur.com/84ULqIw.jpeg
-  - https://i.imgur.com/1VLvQ2z.jpeg
+  - /images/84ULqIw.webp
+  - /images/1VLvQ2z.webp
 switches:
   - mx
 specs:

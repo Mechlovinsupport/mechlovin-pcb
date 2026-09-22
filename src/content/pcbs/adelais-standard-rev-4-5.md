@@ -8,9 +8,9 @@ layout: Ergo
 released: "2025"
 featured: true
 images:
-  - https://i.imgur.com/fI7z96g.jpeg
-  - https://i.imgur.com/j1CW3UA.jpeg
-  - https://i.imgur.com/0gHBIZ7.jpeg
+  - /images/fI7z96g.webp
+  - /images/j1CW3UA.webp
+  - /images/0gHBIZ7.webp
 switches:
   - mx
 specs:

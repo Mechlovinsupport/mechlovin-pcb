@@ -8,8 +8,8 @@ layout: 65%
 released: "2020"
 featured: false
 images:
-  - https://i.imgur.com/GCNMqkA.jpeg
-  - https://i.imgur.com/jxy96Gc.jpeg
+  - /images/GCNMqkA.webp
+  - /images/jxy96Gc.webp
 switches:
   - mx
 specs:

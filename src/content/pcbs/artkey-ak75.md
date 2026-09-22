@@ -8,8 +8,8 @@ layout: 75%
 released: "2025"
 featured: false
 images:
-  - https://i.imgur.com/RrAeLCk.jpeg
-  - https://i.imgur.com/bkTODoA.jpeg
+  - /images/RrAeLCk.webp
+  - /images/bkTODoA.webp
 switches:
   - mx
 specs:

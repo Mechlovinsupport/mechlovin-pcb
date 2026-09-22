@@ -8,9 +8,9 @@ layout: 65%
 released: "2024"
 featured: false
 images:
-  - https://i.imgur.com/icFolOV.jpeg
-  - https://i.imgur.com/RrVcntU.jpeg
-  - https://i.imgur.com/aASiU09.jpeg
+  - /images/icFolOV.webp
+  - /images/RrVcntU.webp
+  - /images/aASiU09.webp
 switches:
   - mx
 specs:
