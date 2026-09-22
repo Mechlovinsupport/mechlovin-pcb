@@ -1,47 +1,9 @@
-// Cloudflare Worker entry. Serves the static Astro site (via the ASSETS
-// binding) and adds two routes that bridge the Decap CMS /admin login to
-// GitHub OAuth:
-//   GET /api/auth     → redirect the user to GitHub to authorize
-//   GET /api/callback → exchange the code for a token, hand it to the CMS
-export default {
-  async fetch(request, env) {
-    const url = new URL(request.url);
-    if (request.method === 'GET' && url.pathname === '/api/auth') {
-      return handleAuth(env, url);
-    }
-    if (request.method === 'GET' && url.pathname === '/api/callback') {
-      return handleCallback(request, env, url);
-    }
-    // Everything else is a static file from the build.
-    return env.ASSETS.fetch(request);
-  },
-};
-
-function handleAuth(env, url) {
-  const clientId = env.GITHUB_OAUTH_CLIENT_ID;
-  if (!clientId) {
-    return new Response('Server is missing the GITHUB_OAUTH_CLIENT_ID secret.', { status: 500 });
-  }
-  const redirectUri = `${url.origin}/api/callback`;
-  const state = crypto.randomUUID();
-  const params = new URLSearchParams({
-    client_id: clientId,
-    redirect_uri: redirectUri,
-    scope: 'repo,user',
-    state,
-    allow_signup: 'false',
-  });
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: `https://github.com/login/oauth/authorize?${params.toString()}`,
-      // Short-lived cookie to guard against CSRF; verified in the callback.
-      'Set-Cookie': `csrf_state=${state}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=600`,
-    },
-  });
-}
-
-async function handleCallback(request, env, url) {
+// Cloudflare Pages Function — step 2 of the Decap CMS GitHub login.
+// GitHub redirects here with a code; we trade it for an access token and
+// hand that token back to the CMS window via postMessage.
+export async function onRequestGet(context) {
+  const { request, env } = context;
+  const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
   const cookie = request.headers.get('Cookie') || '';
