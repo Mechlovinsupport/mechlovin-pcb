@@ -9,4 +9,7 @@ matches:
   - pcb: gsk-x-tgr-910
     fit: direct
     note: "R1 (aluminium) has blocker RGB. R2 (PC) has underglow RGB. "
+  - pcb: zed65-rgb
+    fit: direct
+    note: JST-SUR option.
 ---
