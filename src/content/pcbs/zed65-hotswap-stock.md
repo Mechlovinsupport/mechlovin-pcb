@@ -8,8 +8,8 @@ layout: 65%
 released: "2025"
 featured: true
 images:
-  - /images/zed65hs.jpeg
-  - /images/zed65hs2.png
+  - /images/zed65hs.webp
+  - /images/zed65hs2.webp
 switches:
   - mx
 specs:
