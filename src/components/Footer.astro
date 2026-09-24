@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import { LAYOUTS } from '../data/labels.js';
-const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+const guideHref = '/guides';
 
 // Editable footer text (CMS → Site pages → Footer), with fallbacks.
 const f = (await getEntry('site', 'footer'))?.data ?? {};

@@ -2,7 +2,8 @@
 // Top navigation — appears on every page. `active` highlights the current section.
 import { getEntry } from 'astro:content';
 const { active } = Astro.props;
-const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+// Points to the guides listing (not a single article) — the section grows over time.
+const guideHref = '/guides';
 // Brand link uses the CMS logo (Site pages → Home page → Home page logo) when set,
 // otherwise the text wordmark. Either way it links back to the homepage.
 const logo = (await getEntry('site', 'home'))?.data?.logo || '';
@@ -23,7 +24,7 @@ const logo = (await getEntry('site', 'home'))?.data?.logo || '';
     <div class="topnav-links">
       <a href="/pcbs" class={active === 'pcbs' ? 'active' : ''}>PCBs</a>
       <a href="/compatibility" class={active === 'compatibility' ? 'active' : ''}>Compatibility check</a>
-      <a href={guideHref} class={active === 'guide' ? 'active' : ''}>Build guide</a>
+      <a href={guideHref} class={active === 'guide' ? 'active' : ''}>Build guides</a>
     </div>
     <div class="topnav-right">
       <div class="search">

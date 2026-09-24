@@ -47,7 +47,7 @@ const sectionNav = [
   { id: 'where-to-buy', label: 'Where to buy' },
 ];
 const updated = pcb.changelog?.[0]?.date || pcb.released;
-const guideHref = '/guides/flashing-firmware-qmk-toolbox';
+const guideHref = '/guides';
 const configuratorUrl = 'https://mechlovin.studio';
 ---
 <Base title={`${pcb.name} — Mechlovin Studio`} description={pcb.lede} active="pcbs">
@@ -80,7 +80,7 @@ const configuratorUrl = 'https://mechlovin.studio';
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z M4 10h16 M10 4v16"/></svg>
           Open in Mechlovin' PCB Configurator
         </a>
-        <a class="btn btn-ghost" href={guideHref}>Build guide</a>
+        <a class="btn btn-ghost" href={guideHref}>Build guides</a>
       </div>
     </div>
     <div>
