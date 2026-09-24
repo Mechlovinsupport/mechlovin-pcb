@@ -9,7 +9,7 @@ const pcbs = pcbEntries.map((e) => ({ ...e.data, slug: e.data.slug || e.id }));
 const total = pcbs.length;
 
 const counts = Object.fromEntries(LAYOUTS.map((l) => [l, pcbs.filter((p) => p.layout === l).length]));
-const featured = pcbs.filter((p) => p.featured).slice(0, 6);
+const featured = pcbs.filter((p) => p.featured).slice(0, 20);
 
 const guideHref = '/guides/flashing-firmware-qmk-toolbox';
 
