@@ -6,7 +6,7 @@ rev: "1.2"
 type: stock
 layout: 60%
 released: "2025"
-featured: false
+featured: true
 images:
   - /images/zed60hs.webp
 switches:
