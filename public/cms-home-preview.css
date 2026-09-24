@@ -6,6 +6,13 @@
   padding: 64px var(--gutter) 48px;
   border-bottom: 1px solid var(--border);
 }
+.home-hero .home-logo {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 260px;
+  margin-bottom: 24px;
+}
 .home-hero .eyebrow {
   font-family: var(--font-mono);
   font-size: 12.1px;

@@ -20,8 +20,10 @@ collections:
       - name: "home"
         label: "Home page"
         file: "src/content/site/home.md"
-        description: "The text on the landing page."
+        description: "The logo, favicon, and text on the landing page."
         fields:
+          - { name: logo, label: "Home page logo", widget: image, required: false, media_folder: "/public/branding", public_folder: "/branding", hint: "Shown at the top of the landing page. A PNG or SVG works best. Leave empty for no logo (just the text below)." }
+          - { name: favicon, label: "Favicon (browser-tab icon)", widget: image, required: false, media_folder: "/public/branding", public_folder: "/branding", hint: "The small icon shown in the browser tab — applies to the whole site. A square PNG or an SVG works best." }
           - { name: eyebrow, label: "Eyebrow (small label above the headline)", widget: string, required: false }
           - { name: headline, label: "Headline", widget: string, required: false }
           - { name: lede, label: "Intro paragraph", widget: text, required: false }

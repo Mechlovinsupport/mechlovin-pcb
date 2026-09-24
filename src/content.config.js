@@ -154,6 +154,11 @@ const site = defineCollection({
     })),
     featuredTitle: z.string().default('Featured PCBs'),
     guidesTitle: z.string().default('Build guides'),
+    // Branding (site/home.md): logo shown on the landing page hero; favicon is the
+    // browser-tab icon used site-wide. Stored under /branding so the image-optimizer
+    // Action (which only touches /images) never converts or deletes them.
+    logo: z.string().default(''),
+    favicon: z.string().default(''),
     // Footer (site/footer.md) — all optional so home.md and footer.md can share
     // this collection's schema.
     tagline: z.string().default(''),

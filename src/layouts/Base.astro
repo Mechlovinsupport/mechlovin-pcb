@@ -3,12 +3,20 @@
 // for page content. `active` is forwarded to the nav; `bodyClass` is optional.
 import TopNav from '../components/TopNav.astro';
 import Footer from '../components/Footer.astro';
+import { getEntry } from 'astro:content';
 import '../styles/styles.css';
 import '../styles/home-styles.css';
 import '../styles/compat-styles.css';
 import '../styles/guide-styles.css';
 
 const { title = 'Mechlovin Studio — PCB Resource Hub', description = 'Specs, layouts, and firmware for every Mechlovin PCB.', active } = Astro.props;
+
+// Favicon is editable in the CMS (Site pages → Home page → Favicon). Falls back to
+// the bundled /favicon.svg. The MIME type is inferred from the file extension.
+const branding = (await getEntry('site', 'home'))?.data ?? {};
+const favicon = branding.favicon || '/favicon.svg';
+const FAVICON_TYPES = { svg: 'image/svg+xml', png: 'image/png', ico: 'image/x-icon', gif: 'image/gif', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp' };
+const faviconType = FAVICON_TYPES[(favicon.split('.').pop() || '').toLowerCase()] || 'image/svg+xml';
 ---
 <!doctype html>
 <html lang="en">
@@ -17,7 +25,7 @@ const { title = 'Mechlovin Studio — PCB Resource Hub', description = 'Specs, l
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type={faviconType} href={favicon} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />

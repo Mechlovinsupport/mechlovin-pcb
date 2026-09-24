@@ -15,6 +15,7 @@ const guideHref = '/guides/flashing-firmware-qmk-toolbox';
 
 // Editable home-page text (CMS → Site pages → Home page), with fallbacks.
 const home = (await getEntry('site', 'home'))?.data ?? {};
+const logo = home.logo || '';
 const eyebrow = home.eyebrow || "Mechlovin' Studio · PCB resource hub";
 const headline = home.headline || 'Specs, layouts, and firmware for every Mechlovin PCB.';
 const lede = home.lede || 'One place for everything you need to build and maintain your keyboard — full specifications, supported layouts, firmware and VIA downloads, compatibility notes, and step-by-step guides.';
@@ -48,6 +49,7 @@ const guides = guideEntries.slice(0, 3).map((g, i) => ({
 ---
 <Base title="Mechlovin Studio — PCB Resource Hub">
   <header class="home-hero">
+    {logo && <img class="home-logo" src={logo} alt="Mechlovin Studio" />}
     <div class="eyebrow">{eyebrow}</div>
     <h1>{headline}</h1>
     <p class="lede">{lede}</p>

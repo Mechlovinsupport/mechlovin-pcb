@@ -233,6 +233,7 @@
     function HomePreview(props) {
       var entry = props.entry;
       var d = function (k) { var v = entry.getIn(['data', k]); return v && v.toJS ? v.toJS() : v; };
+      var logo = d('logo') || '';
       var eyebrow = d('eyebrow') || "Mechlovin' Studio · PCB resource hub";
       var headline = d('headline') || 'Specs, layouts, and firmware for every Mechlovin PCB.';
       var lede = d('lede') || 'One place for everything you need to build and maintain your keyboard.';
@@ -245,6 +246,7 @@
 
       return h('div', {}, [
         h('header', { key: 'hero', className: 'home-hero' }, [
+          logo ? h('img', { key: 'logo', className: 'home-logo', src: logo, alt: '' }) : null,
           h('div', { key: 'e', className: 'eyebrow' }, eyebrow),
           h('h1', { key: 'h' }, headline),
           h('p', { key: 'l', className: 'lede' }, lede),
