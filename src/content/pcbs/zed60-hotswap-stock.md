@@ -8,7 +8,7 @@ layout: 60%
 released: "2025"
 featured: false
 images:
-  - /images/zed60hs.jpeg
+  - /images/zed60hs.webp
 switches:
   - mx
 specs:
