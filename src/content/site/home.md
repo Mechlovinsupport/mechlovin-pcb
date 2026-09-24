@@ -1,4 +1,6 @@
 ---
+logo: /branding/logo-tối-giản.png
+favicon: /branding/logo-tối-giản.png
 eyebrow: Mechlovin' Studio · resource hub
 headline: A database for every Mechlovin products
 lede: ""
