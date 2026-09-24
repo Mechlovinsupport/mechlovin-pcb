@@ -1,0 +1,45 @@
+name: Optimize uploaded images
+
+# When a photo is uploaded through /admin, Decap commits the raw file (JPG/PNG)
+# into public/images. This workflow converts any non-WebP image to optimized WebP,
+# rewrites the content references, deletes the original, and commits the result back
+# — so the repo, the /admin editor, and the live site all serve the same .webp file.
+# (Pushes made with GITHUB_TOKEN don't retrigger workflows, so this can't loop.)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/images/**'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimize-images
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Convert new uploads to WebP
+        run: node scripts/optimize-uploads.mjs
+      - name: Commit converted images
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "mechlovin-bot"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Auto-optimize uploaded images to WebP"
+            git push
+          else
+            echo "No non-WebP uploads to convert."
+          fi

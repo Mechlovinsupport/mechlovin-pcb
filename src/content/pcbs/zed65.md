@@ -7,8 +7,8 @@ layout: 65%
 released: "2023"
 featured: false
 images:
-  - /images/ooe9rtt-1-.jpeg
-  - /images/j9ihcu5.jpeg
+  - /images/ooe9rtt-1-.webp
+  - /images/j9ihcu5.webp
 switches:
   - mx
 specs:

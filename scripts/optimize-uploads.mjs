@@ -1,16 +1,16 @@
-// Build-time image optimizer — runs automatically on Cloudflare deploys (see
-// astro.config.mjs). When the owner uploads a photo through /admin, Decap commits
-// the raw file (e.g. a 6 MB phone JPG/PNG) into public/images. This converts any
-// such NON-webp image to web-friendly WebP (max 1600px wide, quality 80) and
-// rewrites the content references to the new .webp path — so uploads are both
-// self-hosted AND optimized without anyone running a script by hand.
+// Image optimizer — run by the GitHub Action (.github/workflows/optimize-images.yml)
+// on every push that adds images, and runnable by hand (`node scripts/optimize-uploads.mjs`).
+// When the owner uploads a photo through /admin, Decap commits the raw file
+// (e.g. a 6 MB phone JPG/PNG) into public/images. This converts any such NON-webp
+// image to web-friendly WebP (max 1600px wide, quality 80), deletes the original,
+// and rewrites the content references to the new .webp path. The Action then commits
+// the result back, so the repo, the /admin editor, and the live site all agree on
+// the same .webp file — exactly like the images migrated from Imgur.
 //
-// It intentionally SKIPS files that are already .webp (the 119 migrated images and
-// anything a previous build already converted), so a normal deploy with no new
-// uploads does almost no work. It mutates the disposable CI checkout only; the
-// original upload stays in the git repo, and each build re-derives the WebP.
+// It SKIPS files that are already .webp, so a run with no new uploads does nothing.
 import { readdirSync, readFileSync, writeFileSync, unlinkSync, existsSync } from 'node:fs';
 import { join, extname, basename } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const IMG = 'public/images';
 const CONTENT = 'src/content';
@@ -65,4 +65,9 @@ export async function optimizeUploads() {
     if (changed) writeFileSync(md, txt);
   }
   console.log(`[img-opt] converted ${pairs.length} upload(s), rewrote ${refs} reference(s).`);
+}
+
+// Run when invoked directly (node scripts/optimize-uploads.mjs), not when imported.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  optimizeUploads();
 }
