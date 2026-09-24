@@ -9,6 +9,7 @@ released: "2025"
 featured: true
 images:
   - /images/zed60hs.webp
+  - /images/zed60hs2.jpeg
 switches:
   - mx
 specs:
