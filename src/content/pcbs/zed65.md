@@ -1,11 +1,11 @@
 ---
-name: Zed65 Solder
+name: Zed65 Solder - Stock
 slug: zed65
 rev: "1.3"
 type: stock
 layout: 65%
 released: "2023"
-featured: false
+featured: true
 images:
   - /images/ooe9rtt-1-.webp
   - /images/j9ihcu5.webp
