@@ -8,7 +8,7 @@ layout: 65%
 released: "2021"
 featured: false
 images:
-  - /images/mech9.jpeg
+  - /images/mech9.webp
 switches:
   - mx
 specs:
