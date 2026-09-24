@@ -6,7 +6,7 @@ rev: "1.2"
 type: stock
 layout: 60%
 released: "2023"
-featured: false
+featured: true
 images:
   - /images/DFMNTTd.webp
   - /images/70cMCeU.webp
