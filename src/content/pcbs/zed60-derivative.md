@@ -1,5 +1,5 @@
 ---
-name: ZED60 - Derivative
+name: ZED60 - JJW Derivative
 slug: zed60-derivative
 subtitle: Commissioned PCB for JJW Derivative keyboard
 type: commission
