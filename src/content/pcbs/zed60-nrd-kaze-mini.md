@@ -7,8 +7,8 @@ layout: 60%
 released: "2025"
 featured: false
 images:
-  - /images/kazeminisolder.jpeg
-  - /images/kazeminihs.jpeg
+  - /images/kazeminisolder.webp
+  - /images/kazeminihs.webp
 switches:
   - mx
 specs:
