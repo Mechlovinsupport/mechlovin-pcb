@@ -1,6 +1,7 @@
 ---
 name: Olly BB
 slug: olly-bb
+subtitle: Drop-in replacement PCB for Duck Black Bird keyboard
 type: stock
 layout: Full-Size
 featured: false
