@@ -8,8 +8,8 @@ layout: 65%
 released: "2026"
 featured: false
 images:
-  - /images/bauerlite.webp
-  - /images/bauerlite2.webp
+  - /images/bauerlite.png
+  - /images/bauerlite2.png
 lede: ""
 switches:
   - mx
@@ -25,7 +25,7 @@ specs:
     - key: JST Standard
       value: JST-SH
 layouts:
-  - svg: /layouts/zed65-hotswap-1-.svg
+  - svg: /layouts/bauer-lite.svg
 downloads:
   - url: https://github.com/mechlovin/PCB/tree/master/Zed65/Rev1/Firmware/Rev1.2
     kind: Firmware & JSON
