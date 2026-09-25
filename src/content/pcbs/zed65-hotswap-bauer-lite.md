@@ -8,8 +8,8 @@ layout: 65%
 released: "2026"
 featured: false
 images:
-  - /images/bauerlite.png
-  - /images/bauerlite2.png
+  - /images/bauerlite.webp
+  - /images/bauerlite2.webp
 lede: ""
 switches:
   - mx
