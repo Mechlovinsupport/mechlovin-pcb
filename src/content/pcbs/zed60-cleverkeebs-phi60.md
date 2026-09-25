@@ -10,7 +10,6 @@ featured: false
 images:
   - /images/phi60hs.webp
   - /images/phi60solder.webp
-  - /images/phi60rgb.webp
 switches:
   - mx
 specs:
