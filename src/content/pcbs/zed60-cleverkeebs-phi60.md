@@ -8,9 +8,9 @@ layout: 60%
 released: "2026"
 featured: false
 images:
-  - /images/phi60hs.jpeg
-  - /images/phi60solder.png
-  - /images/phi60rgb.jpeg
+  - /images/phi60hs.webp
+  - /images/phi60solder.webp
+  - /images/phi60rgb.webp
 switches:
   - mx
 specs:
