@@ -82,7 +82,7 @@ collections:
         name: images
         widget: list
         required: false
-        field: { name: image, label: "Photo", widget: image, media_folder: "/public/images", public_folder: "/images" }
+        field: { name: image, label: "Photo", widget: image, required: false, media_folder: "/public/images", public_folder: "/images" }
         hint: "Add one or more. The first is the main photo; click any photo on the page to enlarge."
       - { name: lede, label: "Description", widget: text, required: false }
 
@@ -114,8 +114,8 @@ collections:
             required: false
             summary: "{{fields.key}}: {{fields.value}}"
             fields:
-              - { name: key, label: "Key", widget: string }
-              - { name: value, label: "Value", widget: string }
+              - { name: key, label: "Key", widget: string, required: false }
+              - { name: value, label: "Value", widget: string, required: false }
 
       - label: "Supported layouts"
         name: layouts
@@ -124,7 +124,7 @@ collections:
         summary: "{{fields.caption}}"
         hint: "Add one diagram per layout version. Export each from keyboard-layout-editor.com → Download SVG."
         fields:
-          - { name: svg, label: "Layout SVG", widget: file, media_folder: "/public/layouts", public_folder: "/layouts" }
+          - { name: svg, label: "Layout SVG", widget: file, media_folder: "/public/layouts", public_folder: "/layouts", required: false }
           - { name: caption, label: "Caption (shown beneath the diagram)", widget: string, required: false, hint: "e.g. “Rev. 2 — split backspace”" }
 
       - label: "Downloads (GitHub links)"
@@ -133,8 +133,8 @@ collections:
         summary: "{{fields.kind}}"
         required: false
         fields:
-          - { name: kind, label: "Label", widget: string, hint: "QMK Firmware / VIA JSON / 3D Model" }
-          - { name: url, label: "GitHub link", widget: string, hint: "Link to this PCB's folder or file on GitHub" }
+          - { name: kind, label: "Label", widget: string, required: false, hint: "QMK Firmware / VIA JSON / 3D Model" }
+          - { name: url, label: "GitHub link", widget: string, required: false, hint: "Link to this PCB's folder or file on GitHub" }
           - { name: description, label: "Description", widget: string, required: false }
 
       - label: "Compatibility notes"
@@ -143,8 +143,8 @@ collections:
         summary: "{{fields.title}}"
         required: false
         fields:
-          - { name: title, label: "Heading", widget: string, hint: "Cases / Plates / Switches / Stabilizers" }
-          - { name: body, label: "Notes", widget: text }
+          - { name: title, label: "Heading", widget: string, required: false, hint: "Cases / Plates / Switches / Stabilizers" }
+          - { name: body, label: "Notes", widget: text, required: false }
 
       - label: "Changelog"
         name: changelog
@@ -152,18 +152,18 @@ collections:
         summary: "{{fields.rev}} ({{fields.date}})"
         required: false
         fields:
-          - { name: rev, label: "Revision", widget: string }
-          - { name: date, label: "Date", widget: string }
-          - { name: current, label: "Current revision", widget: boolean, default: false }
-          - { name: summary, label: "Summary", widget: text }
+          - { name: rev, label: "Revision", widget: string, required: false }
+          - { name: date, label: "Date", widget: string, required: false }
+          - { name: current, label: "Current revision", widget: boolean, default: false, required: false }
+          - { name: summary, label: "Summary", widget: text, required: false }
           - label: "Changes"
             name: items
             widget: list
             required: false
             summary: "{{fields.kind}}: {{fields.text}}"
             fields:
-              - { name: kind, label: "Type", widget: select, options: ["add", "fix", "chg", "rm"] }
-              - { name: text, label: "Description", widget: string }
+              - { name: kind, label: "Type", widget: select, options: ["add", "fix", "chg", "rm"], required: false }
+              - { name: text, label: "Description", widget: string, required: false }
 
       - label: "Vendors"
         name: vendors
@@ -171,12 +171,12 @@ collections:
         summary: "{{fields.name}} — {{fields.price}}"
         required: false
         fields:
-          - { name: name, label: "Vendor", widget: string }
-          - { name: region, label: "Region", widget: string }
-          - { name: stock, label: "Stock", widget: select, options: ["in", "low", "out"] }
-          - { name: price, label: "Price", widget: string }
-          - { name: shipping, label: "Shipping", widget: string }
-          - { name: url, label: "Store URL", widget: string }
+          - { name: name, label: "Vendor", widget: string, required: false }
+          - { name: region, label: "Region", widget: string, required: false }
+          - { name: stock, label: "Stock", widget: select, options: ["in", "low", "out"], required: false }
+          - { name: price, label: "Price", widget: string, required: false }
+          - { name: shipping, label: "Shipping", widget: string, required: false }
+          - { name: url, label: "Store URL", widget: string, required: false }
 
   - name: "keyboards"
     label: "Keyboards / cases (compatibility DB)"
